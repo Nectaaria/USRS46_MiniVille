@@ -4,16 +4,21 @@ using System.Collections.Generic;
 
 public class Player
 {
-    private string Name;
-    private int Die;
-    private int Coins;
-    private Pile Deck;
+    private string name;
+    private int die;
+    private int coins;
+    private Pile deck;
 
-    public Player(string name)
+    public int Coins
     {
-        Name = name;
-        Die = 1;
-        Coins = 0;
+        get { return coins; }
+        set { coins = value; }
+    }
+    public Player(string Name)
+    {
+        name = Name;
+        die = 1;
+        coins = 0;
 
     }
 
