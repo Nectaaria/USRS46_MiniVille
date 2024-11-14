@@ -11,12 +11,14 @@ public class Game
         this.Players = players;
     }
 
-    public void Buy() // J'attends les cartes + peut-être mettre en paramètre une carte, du coup on ajoute direct au deck du joueur, en vérifiant d'abord la disponibilité
+    public void Buy(Cards card, Player player, Pile pile) // Paramètre 1: la carte à acheter, Para 2: le joueur qui achète, Para 3: la pile des cartes restantes du jeu
     {
-
+        if (pile.pile.Contains(card)){
+            player.Deck.Add(card);
+        }
     }
 
-    public bool CheckEnd() // Faut voir si il faut return le joueur plus qu'un bool, ça rendrait la tâche plus simple
+    public bool CheckEnd()
     {
         foreach (Player p in Players)
         {
