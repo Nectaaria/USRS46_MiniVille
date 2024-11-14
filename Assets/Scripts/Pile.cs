@@ -28,4 +28,14 @@ public class Pile
             Debug.Log(card.GetName());
         }
     }
+
+    public void AddCard(Cards card)
+    {
+        pile.Add(card);
+    }
+
+    public void RemoveCard(Cards card)
+    {
+        pile.Remove(card);
+    }
 }
