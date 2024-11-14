@@ -14,6 +14,11 @@ public class Player
         get { return coins; }
         set { coins = value; }
     }
+    public Pile Deck
+    {
+        get { return deck; }
+        set { deck = value; }
+    }
     public Player(string Name)
     {
         name = Name;
