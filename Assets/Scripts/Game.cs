@@ -14,7 +14,7 @@ public class Game
     public void Buy(Cards card, Player player, Pile pile) // Paramètre 1: la carte à acheter, Para 2: le joueur qui achète, Para 3: la pile des cartes restantes du jeu
     {
         if (pile.pile.Contains(card)){
-            player.Deck.Add(card);
+            player.Deck.AddCard(card);
         }
     }
 
