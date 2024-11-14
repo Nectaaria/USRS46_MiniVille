@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class PileMaker : MonoBehaviour
 {
     public Pile pile;
     private Cards champBle;
