@@ -25,6 +25,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
 
         pile = new Pile(gameList);
+
+        if (!pile.CheckCards())
+        {
+            pile.GetEachCards();
+        }
     }
 
     // Update is called once per frame
