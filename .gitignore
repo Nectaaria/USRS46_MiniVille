@@ -397,7 +397,6 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-#
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
