@@ -4,8 +4,7 @@ using System;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
-    private Pile pile;
-
+    public Pile pile;
     private Cards champBle;
     private Cards ferme;
 
