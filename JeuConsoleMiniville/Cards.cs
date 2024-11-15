@@ -26,10 +26,4 @@ namespace Minitamereville
         public string Type { get; set; }
         public string targetType { get; set; }
     }
-    public class Bleue  : Cards
-    {
-         
-    }
-    
-
 }

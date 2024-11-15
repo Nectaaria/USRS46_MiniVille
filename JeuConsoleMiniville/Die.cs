@@ -20,7 +20,7 @@ namespace Minitamereville
 
         public int Lancer()
         {
-            lance = random.Next(int.Parse(nbFaces));
+            lance = random.Next(1, int.Parse(nbFaces));
             return lance;
         }
         public override string ToString()

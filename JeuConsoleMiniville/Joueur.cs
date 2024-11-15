@@ -11,7 +11,7 @@ namespace Minitamereville
         Dictionary<Cards, int> DeckRouge = new Dictionary<Cards, int>();
         Dictionary<Cards, int> DeckBleu = new Dictionary<Cards, int>();
         Dictionary<Cards, int> DeckVerte = new Dictionary<Cards, int>();
-        string nom;
+        public string nom;
         public int coins = 3;
 
         public Joueur(string Nom)
@@ -67,15 +67,20 @@ namespace Minitamereville
         }
         public void PassiveEffect(Joueur joueur, int resultDe)
         {
+            int totalcoinslost = 0;
+            int totalcoinsgained = 0;
             foreach (var item in DeckRouge)
-            {   
+            {
+                Console.WriteLine(item.Key.info.Name);
                 if (item.Key.info.Dice != resultDe)
                     continue;
                 for (int i = 0; i < item.Value; i++)
                 {
                     int pieceAPrendre = Math.Min(item.Key.info.Gain, joueur.coins);
+                    totalcoinslost += pieceAPrendre;
                     joueur.coins -= pieceAPrendre;
                     coins += pieceAPrendre;
+                    totalcoinsgained += pieceAPrendre;
                 }
                 
             }
@@ -85,12 +90,34 @@ namespace Minitamereville
                     continue;
                 for (int i = 0; i < item.Value; i++)
                 {
+                    totalcoinsgained += item.Key.info.Gain;
                     coins += item.Key.info.Gain;
                 }
             }
-                //bleue et rouge
+            //bleue et rouge
+            Console.WriteLine("{0} gagne {1} coins dû aux capacités passives de ses cartes.", joueur.nom, totalcoinsgained);
         }
-        
+
+        public string ShowCards()
+        {
+            string texte = "";
+            foreach (var card in DeckBleu)
+            {
+                texte += card.Key.info.Name + " | ";
+            }
+
+            foreach (var card in DeckRouge)
+            {
+                texte += card.Key.info.Name + " | ";
+            }
+            foreach (var card in DeckVerte)
+            {
+                texte += card.Key.info.Name + " | ";
+            }
+
+            return texte;
+        }
+
         public void AddCard(Cards card)
         {
             Dictionary<Cards, int> deck = new Dictionary<Cards, int>();

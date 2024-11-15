@@ -33,15 +33,11 @@ namespace Minitamereville
             paquet.Add(boulangerie, 6);
             paquet.Add(fromagerie, 6);
         }
-        public List<Cards> GestionStock()
+        public List<Cards> GestionStock(int coins)
         {
             carteDispo = paquet.Where(x => x.Value > 0).Select(x => x.Key).ToList(); //retourne les cartes qui sont encore en stock
-            return carteDispo;  
-        }
-        public List<Cards> GestionPortMonnaie(int coins)
-        {
-            
-            return carteDispo.Where(x => x.info.Cost <= coins).ToList();  //retourne les cartes que le joueur peut acheter
+            carteDispo = carteDispo.Where(x => x.info.Cost <= coins).ToList();
+            return carteDispo;
         }
         public void Buy(int moncul, Joueur joueur)
         {
@@ -54,6 +50,7 @@ namespace Minitamereville
                 carteDispo.Remove(carte);
             }
 
+            Console.WriteLine("{0} a acheté la carte: {1}", joueur.nom, carte.info.Name);
         }
 
 
