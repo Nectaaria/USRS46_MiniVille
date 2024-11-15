@@ -1,11 +1,21 @@
-using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Cards
+namespace Minitamereville
 {
-    private CardsInfo cardsInfo;
+    public class Cards
+    {
+        public CardsInfo info = new CardsInfo();
+        public Cards()
+        {
+
+        }
+    }
     public struct CardsInfo
     {
-        //Attributes with accessors
         public int Id { get; set; }
         public string Color { get; set; }
         public int Cost { get; set; }
@@ -13,28 +23,13 @@ public class Cards
         public string Effect { get; set; }
         public int Dice { get; set; }
         public int Gain { get; set; }
+        public string Type { get; set; }
+        public string targetType { get; set; }
     }
-
-    public Cards(int id, string color, int cost, string name, string effect, int dice, int gain)
+    public class Bleue  : Cards
     {
-        cardsInfo = new CardsInfo();
-
-        cardsInfo.Id = id;
-        cardsInfo.Color = color;
-        cardsInfo.Cost = cost;
-        cardsInfo.Name = name;
-        cardsInfo.Effect = effect;
-        cardsInfo.Dice = dice;
-        cardsInfo.Gain = gain;
+         
     }
+    
 
-
-    //Get all the information of the card
-    public int GetId() { return cardsInfo.Id; }
-    public string GetColor() { return cardsInfo.Color; }
-    public int GetCost() { return cardsInfo.Cost; }
-    public string GetName() { return cardsInfo.Name; }
-    public string GetEffect() { return cardsInfo.Effect; }
-    public int GetDice() { return cardsInfo.Dice; }
-    public int GetGain() { return cardsInfo.Gain; }
 }
