@@ -7,14 +7,14 @@ public class Player
     private string name;
     private int die;
     private int coins;
-    private Pile deck;
+    private List<Cards> deck;
 
     public int Coins
     {
         get { return coins; }
         set { coins = value; }
     }
-    public Pile Deck
+    public List<Cards> Deck
     {
         get { return deck; }
         set { deck = value; }
