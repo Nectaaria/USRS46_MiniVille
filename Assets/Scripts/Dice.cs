@@ -1,3 +1,5 @@
+using System;
+
 namespace Minitamereville
 {
     public class Dice
