@@ -16,8 +16,8 @@ public class PileMaker : MonoBehaviour
 
         for (int i = 0; i < 6; i++)//For each copy of the cards (6 cards of each)
         {
-            champBle = new Cards(1, "Blue", 1, "Cheamp de blé", "GiveMoney", 0, 1);
-            ferme = new Cards(1, "Blue", 2, "Ferme", "GiveMoney", 0, 1);
+            //champBle = new Cards(1, "Blue", 1, "Cheamp de blé", "GiveMoney", 0, 1);
+            //ferme = new Cards(1, "Blue", 2, "Ferme", "GiveMoney", 0, 1);
 
             gameList.Add(champBle);
             gameList.Add(ferme);

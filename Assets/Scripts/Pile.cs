@@ -25,7 +25,7 @@ public class Pile
     {
         foreach (var card in pile)
         {
-            Debug.Log(card.GetName());
+            //Debug.Log(card.GetName());
         }
     }
 
