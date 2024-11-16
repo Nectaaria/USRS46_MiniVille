@@ -69,9 +69,9 @@ namespace Minitamereville
         {
             int totalcoinslost = 0;
             int totalcoinsgained = 0;
+            List<string> cartesList = new List<string>();
             foreach (var item in DeckRouge)
             {
-                Console.WriteLine(item.Key.info.Name);
                 if (item.Key.info.Dice != resultDe)
                     continue;
                 for (int i = 0; i < item.Value; i++)
@@ -81,6 +81,7 @@ namespace Minitamereville
                     joueur.coins -= pieceAPrendre;
                     coins += pieceAPrendre;
                     totalcoinsgained += pieceAPrendre;
+                    cartesList.Add(item.Key.info.Name);
                 }
                 
             }
@@ -92,30 +93,33 @@ namespace Minitamereville
                 {
                     totalcoinsgained += item.Key.info.Gain;
                     coins += item.Key.info.Gain;
+                    cartesList.Add(item.Key.info.Name);
                 }
             }
             //bleue et rouge
-            Console.WriteLine("{0} gagne {1} coins dû aux capacités passives de ses cartes.", joueur.nom, totalcoinsgained);
+            string cartes = string.Join(", ", cartesList);
+            Console.WriteLine("{0} gagne {1} coins dû aux capacités passives de ses cartes: {2}", joueur.nom, totalcoinsgained, cartes == "" ? "Aucune" : cartes);
         }
 
         public string ShowCards()
         {
-            string texte = "";
+            List<string> texte = new List<string>();
             foreach (var card in DeckBleu)
             {
-                texte += card.Key.info.Name + " | ";
+                texte.Add(card.Key.info.Name);
             }
 
             foreach (var card in DeckRouge)
             {
-                texte += card.Key.info.Name + " | ";
+                texte.Add(card.Key.info.Name);
             }
             foreach (var card in DeckVerte)
             {
-                texte += card.Key.info.Name + " | ";
+                texte.Add(card.Key.info.Name);
             }
 
-            return texte;
+            string cartes = string.Join(" | ", texte);
+            return cartes;
         }
 
         public void AddCard(Cards card)
