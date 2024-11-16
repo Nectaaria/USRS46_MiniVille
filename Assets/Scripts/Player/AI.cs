@@ -1,12 +1,17 @@
-using UnityEngine;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class AI : Player
+namespace Minitamereville
 {
-    public string Name;
-    public AI(string name) : base(name)
+    public class AI : Joueur
     {
-        Name = name;
+        public AI(string Nom) : base(Nom)
+        {
+
+        }
+
     }
 }
