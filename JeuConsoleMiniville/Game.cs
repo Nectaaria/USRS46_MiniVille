@@ -109,7 +109,7 @@ namespace Minitamereville
 
         public void MsgEntry(Joueur joueur)
         {
-            string texte = String.Concat("=====> Tour de ", joueur.nom, "\nSes cartes: ", joueur.ShowCards(), "\nNombre de pièces: ", joueur.coins, "\n------");
+            string texte = String.Concat("-----------------\n", "=====> Tour de ", joueur.nom, "\nSes cartes: ", joueur.ShowCards(), "\nNombre de pièces: ", joueur.coins, "\n------");
             Console.WriteLine(texte);
         }
     }

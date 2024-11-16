@@ -19,6 +19,12 @@ namespace Minitamereville
         bool debileproof = true;
         bool canBuy = false;
         private bool isExpert;
+    public void Buy(Cards card, Player player, Pile pile) // Param�tre 1: la carte � acheter, Para 2: le joueur qui ach�te, Para 3: la pile des cartes restantes du jeu
+    {
+        if (pile.pile.Contains(card)){
+            //player.Deck.AddCard(card);
+        }
+    }
 
         private int EndCoinGoal = 20;
         public int result;
