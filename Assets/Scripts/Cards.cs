@@ -1,35 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
+using UnityEngine;
 
-namespace Minitamereville
+[CreateAssetMenu(fileName = "New Card", menuName = "Miniville/Card")]
+public class Cards : ScriptableObject
 {
-    public class Cards
-    {
-        public CardsInfo info = new CardsInfo();
-        public Cards()
-        {
+    public CardsInfo cardsInfo;
+    public Sprite Visual;
+}
 
-        }
-    }
-    public struct CardsInfo
-    {
-        public int Id { get; set; }
-        public string Color { get; set; }
-        public int Cost { get; set; }
-        public string Name { get; set; }
-        public string Effect { get; set; }
-        public int Dice { get; set; }
-        public int Gain { get; set; }
-        public string Type { get; set; }
-        public string targetType { get; set; }
-    }
-    public class Bleue  : Cards
-    {
-         
-    }
-    
-
+[Serializable]
+public struct CardsInfo
+{
+    //Attributes with accessors
+    public int Id;
+    public string Color;
+    public int Cost;
+    public string Name;
+    public string Effect;
+    public int Dice;
+    public int Gain;
 }
