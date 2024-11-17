@@ -38,7 +38,7 @@ namespace Minitamereville
                     continue;
                 foreach (var targetItem in DeckBleu)
                 {
-                    if (targetItem.Key.info.Type == item.Key.info.targetType)
+                    if (targetItem.Key.info.Type == item.Key.info.TargetType)
                     {
                         buildingCount += targetItem.Value;
                     }

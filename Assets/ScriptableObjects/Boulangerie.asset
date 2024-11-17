@@ -9,6 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f122d4fc9b97a7742ab0faf99a5f5581, type: 3}
+  m_Script: {fileID: 11500000, guid: 212a823a8a4c85a49979910117ca4674, type: 3}
   m_Name: Boulangerie
   m_EditorClassIdentifier: 
+  info:
+    Id: 0
+    Color: 
+    Cost: 0
+    Name: 
+    Effect: 
+    Dice: 0
+    Gain: 0
+    Type: 
+    TargetType: 
+  Visual: {fileID: -256174375, guid: ec0473514b0aec64cb1e502101a85307, type: 3}
