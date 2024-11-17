@@ -8,13 +8,13 @@ using UnityEngine;
 
 namespace Miniville
 {
-    public class Pile
+    public class Pile : MonoBehaviour
     {
         public List<Cards> cardsToInstantiate;
         [Min(0)] public int startPileCount = 6;
         public Dictionary<Cards, int> paquet = new Dictionary<Cards, int>();
         public List<Cards> carteDispo = new List<Cards>();
-        public Pile()
+        public void Start()
         {
             foreach (var card in cardsToInstantiate)
             {
