@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 212a823a8a4c85a49979910117ca4674, type: 3}
-  m_Name: Verger
+  m_Name: "Rouge-Caf\xE9"
   m_EditorClassIdentifier: 
   info:
     Id: 0
-    Color: 0
-    Cost: 6
-    Name: Mine
+    Color: 2
+    Cost: 2
+    Name: "Caf\xE9"
     Effect: 
-    Dice: 9
-    Gain: 5
-    Type: Engrenage
+    Dice: 3
+    Gain: 1
+    Type: Restaurant
     TargetType: 
   Visual: {fileID: 0}

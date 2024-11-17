@@ -22,8 +22,6 @@ public class MainScenePlay : MonoBehaviour
     {
         game.gameTypeChoice = 1;
         canva.SetActive(false);
-        
-        
     }
     public void CloseModeCanvaCasual()
     {

@@ -1,9 +1,13 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SmoothTransition : MonoBehaviour
 {
-    public GameObject targetObject; // Assign in the Inspector or set dynamically
+    public GameObject targetObject { get; set; } // Assign in the Inspector or set dynamically
     public float smoothSpeed = 5f; // Adjust speed of transition
+
+    public List<GameObject> targets;
 
     void Start()
     {
@@ -24,8 +28,16 @@ public class SmoothTransition : MonoBehaviour
                 Time.deltaTime * smoothSpeed
             );
 
-            Quaternion targetRotation = Quaternion.Euler(90f, 90f, 180f);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * smoothSpeed);
+            //Quaternion targetRotation = Quaternion.Euler(90f, 90f, 180f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetObject.transform.rotation, Time.deltaTime * smoothSpeed);
         }
+    }
+
+    public void SetCameraPosition(int positionIndex)
+    {
+        if (positionIndex < 0 || positionIndex >= targets.Count)
+            return;
+
+        targetObject = targets[positionIndex];
     }
 }
