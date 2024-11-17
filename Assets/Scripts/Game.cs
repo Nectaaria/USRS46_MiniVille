@@ -250,11 +250,40 @@ namespace Miniville
         public bool End()
         {
             bool expertGoalReached = false;
+            bool allValuesValid = true;
+
+            Dictionary<Cards, int> cardAmount = new Dictionary<Cards, int>();//Dict pour stocker le nb de cartes que le joueur à
+
             if (isExpert)
             {
-
+                foreach (Cards plrCards in pile.cardsToInstantiate)
+                {
+                    if (joueurs[0].GetPlayerCards().ContainsKey(plrCards))
+                    {
+                        if (cardAmount.ContainsKey(plrCards))
+                        {
+                            cardAmount[plrCards]++;//Incrementer
+                        }
+                        else
+                        {
+                            cardAmount[plrCards] = 1;//Initialiser le compte si c'est la première fois que la carte est vue
+                        }
+                    }
+                }
+                foreach (var values in cardAmount.Values)
+                {
+                    if (values < 1)//Si les cartes ne sont pas toutes en 1 exemplaire on quitte la boucle
+                    {
+                        allValuesValid = false;
+                        break;
+                    }
+                }
+                if (allValuesValid)
+                {
+                    expertGoalReached = true;
+                }
             }
-            else
+            else//Dans les cas ou expert n'est pas selectionne mettre a true pour pouvoir gganer quand meme la partie (expertGoalReached est une condition de victoire)
             {
                 expertGoalReached = true;
             }

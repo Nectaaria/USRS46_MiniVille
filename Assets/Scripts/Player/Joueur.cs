@@ -146,10 +146,19 @@ namespace Miniville
             }
         }
 
-        public List<Cards> GetPlayerCards()
+        public Dictionary<Cards, int> GetPlayerCards()
         {
-            List<Cards> allPlayerCards = DeckBleu.Keys.Concat(DeckRouge.Keys).Concat(DeckVert.Keys).ToList();
+            Dictionary<Cards, int> allPlayerCards = new Dictionary<Cards, int>(DeckBleu);
 
+            foreach (var card in DeckRouge)
+            {
+                allPlayerCards.Add(card.Key, card.Value);
+            }
+
+            foreach (var card in DeckVert)
+            {
+                allPlayerCards.Add(card.Key, card.Value);
+            }
 
             return allPlayerCards;
         }
