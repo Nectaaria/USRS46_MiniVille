@@ -255,17 +255,17 @@ namespace Miniville
 
             if (isExpert)
             {
-                foreach (Cards plrCards in pile.cardsToInstantiate)
+                foreach (var key in pile.cardsToInstantiate)
                 {
-                    if (joueurs[0].GetPlayerCards().ContainsKey(plrCards))
+                    if (joueurs[0].GetPlayerCards().ContainsKey(key))
                     {
-                        if (cardAmount.ContainsKey(plrCards))
+                        if (cardAmount.ContainsKey(key))
                         {
-                            cardAmount[plrCards]++;//Incrementer
+                            cardAmount[key]++;//Incrementer
                         }
                         else
                         {
-                            cardAmount[plrCards] = 1;//Initialiser le compte si c'est la première fois que la carte est vue
+                            cardAmount[key] = 1;//Initialiser le compte si c'est la première fois que la carte est vue
                         }
                     }
                 }
@@ -287,7 +287,7 @@ namespace Miniville
                 expertGoalReached = true;
             }
 
-            return joueurs[0].coins >= EndCoinGoal || joueurs[1].coins >= EndCoinGoal && expertGoalReached;
+            return (joueurs[0].coins >= EndCoinGoal) || (joueurs[1].coins >= EndCoinGoal && expertGoalReached);
         }
 
         public void MsgEntry(Joueur joueur)
