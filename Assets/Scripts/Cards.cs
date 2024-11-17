@@ -18,7 +18,7 @@ namespace Miniville
     {
         //Attributes with accessors
         public int Id;
-        public string Color;
+        public CardColor Color;
         public int Cost;
         public string Name;
         public string Effect;
@@ -26,6 +26,13 @@ namespace Miniville
         public int Gain;
         public string Type;
         public string TargetType;
+    }
+
+    public enum CardColor
+    {
+        Bleu,
+        Vert,
+        Rouge
     }
     
 }
