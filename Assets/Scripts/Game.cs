@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 using System.Collections;
+using TMPro;
 
 
 namespace Miniville
@@ -26,6 +27,8 @@ namespace Miniville
 
         public GameObject diceChoice;
         public GameObject buyChoice;
+        public TMP_Text outputText;
+
         public Pile pile;
         public SmoothTransition transition;
         public List<Joueur> joueurs;
@@ -54,7 +57,7 @@ namespace Miniville
 
         public void RunGame()
         {
-            Console.WriteLine("Choix du type de la partie: rapide, standard, longue ou expert!");
+            outputText.text = "Choix du type de la partie: rapide, standard, longue ou expert!";
 
             switch (gameTypeChoice) //Choix du type de partie
             {
@@ -82,7 +85,7 @@ namespace Miniville
                 MsgEntry(joueurs[0]);
 
                 result = de.Lancer(); //joueur 1 lance dé
-                Console.Write("Dé : " + result + "\n");
+                outputText.text = "Dé : " + result + "\n";
                 joueurs[1].PassiveEffect(joueurs[0], result); //joueur 2 active effet passif
                 joueurs[0].ActivateEffect(result); //joueur 1 active effet actif
                 debileproof = true;
@@ -90,17 +93,17 @@ namespace Miniville
 
                 while (debileproof)
                 {
-                    Console.WriteLine("Voulez-vous acheter une carte ? (oui/non)" +
-                                      String.Format(" | Pièces: {0}", joueurs[0].coins));
+                    outputText.text = "Voulez-vous acheter une carte ? (oui/non)" +
+                                      String.Format(" | Pièces: {0}", joueurs[0].coins);
                     choix = Console.ReadLine().ToLower();
                     if (choix == "oui" && joueurs[0].coins >= 1)
                     {
-                        Console.WriteLine("Quelle carte ?");
+                        outputText.text = "Quelle carte ?";
                         foreach (var item in pile.carteDispo)
                         {
-                            Console.WriteLine(item.info.Id - 1 + " : " + item.info.Name +
+                            outputText.text = item.info.Id - 1 + " : " + item.info.Name +
                                               String.Format(" (Coût: {0})",
-                                                  item.info.Cost)); //Affichage des cartes dispo avec les id
+                                                  item.info.Cost); //Affichage des cartes dispo avec les id
                         }
 
                         int playerChoice = int.Parse(Console.ReadLine());
@@ -110,13 +113,13 @@ namespace Miniville
                     else //Sinon rien acheter
                     {
                         debileproof = false;
-                        Console.WriteLine("Tour passé.");
+                        outputText.text = "Tour passé.";
                     }
                 }
 
                 MsgEntry(joueurs[1]);
                 result = de.Lancer();
-                Console.WriteLine("Dé : " + de.ToString()); //Afficher le de
+                outputText.text = "Dé : " + de.ToString(); //Afficher le de
 
                 joueurs[0].PassiveEffect(joueurs[1], result); //joueur 1 active effet passif
                 joueurs[1].ActivateEffect(result); //joueur 2 active effet actif
@@ -131,12 +134,12 @@ namespace Miniville
                 }
             }
 
-            Console.WriteLine("Fin de la partie");
+            outputText.text = "Fin de la partie";
         }
 
         public IEnumerator RunGame_Coroutine()
         {
-            Console.WriteLine("Choix du type de la partie: rapide, standard, longue ou expert!");
+            outputText.text = "Choix du type de la partie: rapide, standard, longue ou expert!";
 
             switch (gameTypeChoice) //Choix du type de partie
             {
@@ -160,17 +163,15 @@ namespace Miniville
             while (!End())
             {
                 //MsgEntry(joueurs[0]);
-
                 // demander le nombre de dés
                 diceChoice.SetActive(true);
                 yield return new WaitUntil(() => canContinueAction == true);
                 canContinueAction = false;
 
                 result = de.Lancer(diceCount); //joueur 1 lance dé
-                Debug.Log($"Lancer de dé: {result}");
+                outputText.text = $"Lancer de dé: {result}";
                 // Feedback sur les effets passifs et actifs
                 // Pièce up pour chaque carte activée
-                Debug.Log("Activate Effects");
                 joueurs[1].PassiveEffect(joueurs[0], result); //joueur 2 active effet passif
                 joueurs[0].ActivateEffect(result); //joueur 1 active effet actif
 
@@ -216,9 +217,8 @@ namespace Miniville
 
                 //MsgEntry(joueurs[1]);
                 result = de.Lancer();
-                Debug.Log($"Lancer de dé: {result}");
+                outputText.text = $"Lancer de dé: {result}";
                 // Feedback sur les effets passifs et actifs
-                Debug.Log("Activate Effects");
                 joueurs[0].PassiveEffect(joueurs[1], result); //joueur 1 active effet passif
                 joueurs[1].ActivateEffect(result); //joueur 2 active effet actif
 
@@ -327,7 +327,7 @@ namespace Miniville
         {
             string texte = String.Concat("=====> Tour de ", joueur.nom, "\nSes cartes: ", joueur.ShowCards(),
                 "\nNombre de pièces: ", joueur.coins, "\n------");
-            Console.WriteLine(texte);
+            outputText.text = texte;
         }
 
         public void ContinueAction() => canContinueAction = true;
