@@ -1,8 +1,6 @@
-﻿using Minitamereville;
+﻿using UnityEngine;
 
-using UnityEngine;
-
-namespace Yo
+namespace Miniville
 {
     class Program : MonoBehaviour
     {
