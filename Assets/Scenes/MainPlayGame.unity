@@ -1027,18 +1027,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   game: {fileID: 142106737}
   pileVisuals:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1086702200}
+  - {fileID: 2113470738}
+  - {fileID: 919743394}
+  - {fileID: 128013650}
+  - {fileID: 1978211612}
+  - {fileID: 1275128858}
+  - {fileID: 572681228}
+  - {fileID: 546980891}
+  - {fileID: 286595242}
+  - {fileID: 747133078}
+  - {fileID: 1888372382}
+  - {fileID: 2054777063}
 --- !u!4 &348935477
 Transform:
   m_ObjectHideFlags: 0
