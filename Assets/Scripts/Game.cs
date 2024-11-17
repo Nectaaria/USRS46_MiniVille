@@ -14,7 +14,6 @@ namespace Miniville
 
         public int gameTypeChoice=1;
         string choix;
-        string moncul;
 
         bool debileproof = true;
         bool canBuy = false;

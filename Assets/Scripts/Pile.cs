@@ -50,9 +50,9 @@ namespace Miniville
             return carteDispo.Where(x => x.info.Cost <= coins).ToList();  
         }
         
-        public void Buy(int moncul, Joueur joueur)
+        public void Buy(int index, Joueur joueur)
         {
-            var carte = carteDispo[moncul];
+            var carte = carteDispo[index];
             joueur.AddCard(carte);
             joueur.coins -= carte.info.Cost;
             paquet[carte]--;
