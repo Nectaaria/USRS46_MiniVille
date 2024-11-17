@@ -33,6 +33,7 @@ namespace Miniville
         Random random = new Random();
 
         bool canContinueAction;
+        int diceCount;
 
         private void Start()
         {
@@ -163,8 +164,9 @@ namespace Miniville
                 // demander le nombre de dés
                 diceChoice.SetActive(true);
                 yield return new WaitUntil(() => canContinueAction == true);
+                canContinueAction = false;
 
-                result = de.Lancer(); //joueur 1 lance dé
+                result = de.Lancer(diceCount); //joueur 1 lance dé
                 Debug.Log($"Lancer de dé: {result}");
                 // Feedback sur les effets passifs et actifs
                 // Pièce up pour chaque carte activée
@@ -329,5 +331,7 @@ namespace Miniville
         }
 
         public void ContinueAction() => canContinueAction = true;
+
+        public void SetDiceCount(int count) => diceCount = count;
     }
 }
