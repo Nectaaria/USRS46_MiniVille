@@ -1,12 +1,14 @@
 using System;
 using Unity;
 using System.Collections.Generic;
+using UnityEngine;
+using Random = System.Random;
 
 
 namespace Miniville
 {
 
-    public class Game
+    public class Game : MonoBehaviour
     {
         public int gameTypeChoice=1;
         string choix;

@@ -2,18 +2,21 @@ using System.Collections;
 using System.Xml.Serialization;
 using UnityEngine;
 
-public class CardVisual : MonoBehaviour
+namespace Miniville
 {
-    public Cards Card
+    public class CardVisual : MonoBehaviour
     {
-        get => _card;
-        set
+        public Cards Card
         {
-            _card = value;
-            Renderer.sprite = _card.Visual;
+            get => _card;
+            set
+            {
+                _card = value;
+                Renderer.sprite = _card.Visual;
+            }
         }
-    }
-    private Cards _card;
+        private Cards _card;
 
-    public SpriteRenderer Renderer;
+        public SpriteRenderer Renderer;
+    } 
 }

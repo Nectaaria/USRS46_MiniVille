@@ -25,7 +25,7 @@ namespace Miniville
         public int Dice;
         public int Gain;
         public string Type;
-        public string targetType;
+        public string TargetType;
     }
     
 }
