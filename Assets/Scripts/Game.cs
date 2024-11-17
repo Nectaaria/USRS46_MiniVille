@@ -57,8 +57,6 @@ namespace Miniville
 
         public void RunGame()
         {
-            outputText.text = "Choix du type de la partie: rapide, standard, longue ou expert!";
-
             switch (gameTypeChoice) //Choix du type de partie
             {
                 case 1:
