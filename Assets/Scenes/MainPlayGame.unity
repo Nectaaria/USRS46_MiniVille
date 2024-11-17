@@ -2242,7 +2242,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 569787016}
+<<<<<<< Updated upstream
   smoothSpeed: 5
+=======
+  smoothSpeed: 2
+>>>>>>> Stashed changes
 --- !u!81 &1512424293
 AudioListener:
   m_ObjectHideFlags: 0
