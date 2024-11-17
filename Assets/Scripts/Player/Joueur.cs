@@ -10,8 +10,6 @@ namespace Miniville
 {
     public class Joueur
     {
-        public List<Cards> StartingCards;
-
         Dictionary<Cards, int> DeckRouge = new Dictionary<Cards, int>();
         Dictionary<Cards, int> DeckBleu = new Dictionary<Cards, int>();
         Dictionary<Cards, int> DeckVert = new Dictionary<Cards, int>();
@@ -20,23 +18,6 @@ namespace Miniville
 
         public Joueur(string Nom)
         {
-            foreach (var card in StartingCards)
-            {
-                switch (card.info.Color)
-                {
-                    default:
-                    case CardColor.Bleu:
-                        DeckBleu.Add(card, 1);
-                        break;
-                    case CardColor.Vert:
-                        DeckVert.Add(card, 1);
-                        break;
-                    case CardColor.Rouge:
-                        DeckRouge.Add(card, 1);
-                        break;
-                }
-            }
-
             this.nom = Nom;
             //var ble = new Cards()
             //{

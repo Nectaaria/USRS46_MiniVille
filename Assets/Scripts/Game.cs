@@ -1,5 +1,4 @@
 using System;
-using Unity;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
@@ -31,8 +30,11 @@ namespace Miniville
 
         Random random = new Random();
 
-        public Game()
+        bool canContinueAction;
+
+        private void Start()
         {
+            pile.Init();
             joueurs = new List<Joueur>();
             joueurs.Add(new Joueur("Audrey"));
             joueurs.Add(new AI("Pascal"));
@@ -45,6 +47,8 @@ namespace Miniville
                 }
             }
         }
+
+        public void StartGame() => StartCoroutine(RunGame_Coroutine());
 
         public void RunGame()
         {
@@ -153,10 +157,11 @@ namespace Miniville
 
             while (!End())
             {
-                MsgEntry(joueurs[0]);
+                //MsgEntry(joueurs[0]);
 
+                // demander le nombre de dés
                 result = de.Lancer(); //joueur 1 lance dé
-                // Afficher résultat Dé
+                Debug.Log($"Lancer de dé: {result}");
                 // Feedback sur les effets passifs et actifs
                 // Pièce up pour chaque carte activée
                 joueurs[1].PassiveEffect(joueurs[0], result); //joueur 2 active effet passif
@@ -164,38 +169,39 @@ namespace Miniville
                 debileproof = true;
                 pile.GestionStock(joueurs[0].coins);
 
-                // remplacer la boucle et demander au joueur s'il veut acheter une carte
-                // mouvement de caméra
-                // click + event pour continuer WaitUntil
-                while (debileproof)
-                {
-                    Console.WriteLine("Voulez-vous acheter une carte ? (oui/non)" +
-                                      String.Format(" | Pièces: {0}", joueurs[0].coins));
-                    choix = Console.ReadLine().ToLower();
-                    if (choix == "oui" && joueurs[0].coins >= 1)
-                    {
-                        Console.WriteLine("Quelle carte ?");
-                        foreach (var item in pile.carteDispo)
-                        {
-                            Console.WriteLine(item.info.Id - 1 + " : " + item.info.Name +
-                                              String.Format(" (Coût: {0})",
-                                                  item.info.Cost)); //Affichage des cartes dispo avec les id
-                        }
+                // activate player choice
+                yield return new WaitUntil(() => canContinueAction == true);
+                canContinueAction = false;
 
-                        int playerChoice = int.Parse(Console.ReadLine());
+                //while (debileproof)
+                //{
+                //    Console.WriteLine("Voulez-vous acheter une carte ? (oui/non)" +
+                //                      String.Format(" | Pièces: {0}", joueurs[0].coins));
+                //    choix = Console.ReadLine().ToLower();
+                //    if (choix == "oui" && joueurs[0].coins >= 1)
+                //    {
+                //        Console.WriteLine("Quelle carte ?");
+                //        foreach (var item in pile.carteDispo)
+                //        {
+                //            Console.WriteLine(item.info.Id - 1 + " : " + item.info.Name +
+                //                              String.Format(" (Coût: {0})",
+                //                                  item.info.Cost)); //Affichage des cartes dispo avec les id
+                //        }
 
-                        CheckIfCanBuy(joueurs[0], playerChoice);
-                    }
-                    else //Sinon rien acheter
-                    {
-                        debileproof = false;
-                        Console.WriteLine("Tour passé.");
-                    }
-                }
+                //        int playerChoice = int.Parse(Console.ReadLine());
 
-                MsgEntry(joueurs[1]);
+                //        CheckIfCanBuy(joueurs[0], playerChoice);
+                //    }
+                //    else //Sinon rien acheter
+                //    {
+                //        debileproof = false;
+                //        Console.WriteLine("Tour passé.");
+                //    }
+                //}
+
+                //MsgEntry(joueurs[1]);
                 result = de.Lancer();
-                // Afficher résultat Dé
+                Debug.Log($"Lancer de dé: {result}");
                 // Feedback sur les effets passifs et actifs
                 joueurs[0].PassiveEffect(joueurs[1], result); //joueur 1 active effet passif
                 joueurs[1].ActivateEffect(result); //joueur 2 active effet actif
@@ -208,10 +214,14 @@ namespace Miniville
                     int randomChoice = random.Next(pile.carteDispo.Count);
                     CheckIfCanBuy(joueurs[1], randomChoice);
                 }
+
+                yield return new WaitForSeconds(1);
             }
 
-            return null;
+            yield return null;
         }
+
+        public void ContinueAction() => canContinueAction = true;
 
         private void CheckIfCanBuy(Joueur joueur, int choice)
         {

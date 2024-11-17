@@ -8,13 +8,14 @@ using UnityEngine;
 
 namespace Miniville
 {
+    [Serializable]
     public class Pile
     {
         public List<Cards> cardsToInstantiate;
         [Min(0)] public int startPileCount = 6;
         public Dictionary<Cards, int> paquet = new Dictionary<Cards, int>();
         public List<Cards> carteDispo = new List<Cards>();
-        public Pile()
+        public void Init()
         {
             foreach (var card in cardsToInstantiate)
             {
