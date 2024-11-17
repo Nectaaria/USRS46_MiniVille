@@ -25,7 +25,7 @@ namespace Miniville
 
         private De de = new De("6");
 
-        public Pile pile = new Pile();
+        public Pile pile;
         public List<Joueur> joueurs;
 
         Random random = new Random();
@@ -34,7 +34,6 @@ namespace Miniville
 
         private void Start()
         {
-            pile.Init();
             joueurs = new List<Joueur>();
             joueurs.Add(new Joueur("Audrey"));
             joueurs.Add(new AI("Pascal"));

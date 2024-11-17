@@ -400,6 +400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 142106738}
   - component: {fileID: 142106737}
+  - component: {fileID: 142106739}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -423,15 +424,7 @@ MonoBehaviour:
   gameTypeChoice: 1
   isExpert: 0
   result: 0
-  pile:
-    cardsToInstantiate:
-    - {fileID: 11400000, guid: 687fd0cb38d74664688c2a73237e172a, type: 2}
-    - {fileID: 11400000, guid: 995eccc6d6ea58b40a53acb8f3cefcac, type: 2}
-    - {fileID: 11400000, guid: 1a48dc929e8b3954cb0a13cdef0925c1, type: 2}
-    - {fileID: 11400000, guid: 5fc689ba86eb92b41950c6a5dacdf913, type: 2}
-    - {fileID: 11400000, guid: 953b1108824ef2740a9e039230d0ddf7, type: 2}
-    startPileCount: 6
-    carteDispo: []
+  pile: {fileID: 142106739}
 --- !u!4 &142106738
 Transform:
   m_ObjectHideFlags: 0
@@ -447,6 +440,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &142106739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142106736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe779ad293d8d084e9d1db3d446c8614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardsToInstantiate:
+  - {fileID: 11400000, guid: 687fd0cb38d74664688c2a73237e172a, type: 2}
+  - {fileID: 11400000, guid: 995eccc6d6ea58b40a53acb8f3cefcac, type: 2}
+  - {fileID: 11400000, guid: 1a48dc929e8b3954cb0a13cdef0925c1, type: 2}
+  - {fileID: 11400000, guid: 5fc689ba86eb92b41950c6a5dacdf913, type: 2}
+  - {fileID: 11400000, guid: 953b1108824ef2740a9e039230d0ddf7, type: 2}
+  startPileCount: 6
+  carteDispo: []
 --- !u!1 &218953011
 GameObject:
   m_ObjectHideFlags: 0
