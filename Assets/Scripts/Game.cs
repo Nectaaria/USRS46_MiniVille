@@ -63,10 +63,7 @@ namespace Miniville
                     EndCoinGoal = 30;
                     break;
 
-                case 4:
-                    EndCoinGoal = 20;
-                    isExpert = true;
-                    break;
+                
 
                 default:
                     EndCoinGoal = 20;

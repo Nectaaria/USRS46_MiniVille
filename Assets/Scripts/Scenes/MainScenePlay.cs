@@ -37,8 +37,6 @@ public class MainScenePlay : MonoBehaviour
     }
     public void CloseModeCanvaHard()
     {
-        game.gameTypeChoice = 4;
         game.isExpert = true;
-        canva.SetActive(false);
     }
 }
