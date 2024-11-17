@@ -23,9 +23,12 @@ namespace Miniville
         private int EndCoinGoal = 20;
         public int result;
 
-        private De de = new De("6");
+        private Dice de = new Dice(6);
 
+        public GameObject diceChoice;
+        public GameObject buyChoice;
         public Pile pile;
+        public SmoothTransition transition;
         public List<Joueur> joueurs;
 
         Random random = new Random();
@@ -159,18 +162,28 @@ namespace Miniville
                 //MsgEntry(joueurs[0]);
 
                 // demander le nombre de dés
+                diceChoice.SetActive(true);
+                yield return new WaitUntil(() => canContinueAction == true);
+
                 result = de.Lancer(); //joueur 1 lance dé
                 Debug.Log($"Lancer de dé: {result}");
                 // Feedback sur les effets passifs et actifs
                 // Pièce up pour chaque carte activée
+                Debug.Log("Activate Effects");
                 joueurs[1].PassiveEffect(joueurs[0], result); //joueur 2 active effet passif
                 joueurs[0].ActivateEffect(result); //joueur 1 active effet actif
-                debileproof = true;
-                pile.GestionStock(joueurs[0].coins);
 
+                yield return new WaitForSeconds(1);
+
+                debileproof = true;
+                if (pile.GestionStock(joueurs[0].coins).Count > 0)
+                {
+                    buyChoice.SetActive(true);
+                    yield return new WaitUntil(() => canContinueAction == true);
+                    canContinueAction = false;
+
+                }
                 // activate player choice
-                yield return new WaitUntil(() => canContinueAction == true);
-                canContinueAction = false;
 
                 //while (debileproof)
                 //{
@@ -198,12 +211,17 @@ namespace Miniville
                 //    }
                 //}
 
+                yield return new WaitForSeconds(1);
+
                 //MsgEntry(joueurs[1]);
                 result = de.Lancer();
                 Debug.Log($"Lancer de dé: {result}");
                 // Feedback sur les effets passifs et actifs
+                Debug.Log("Activate Effects");
                 joueurs[0].PassiveEffect(joueurs[1], result); //joueur 1 active effet passif
                 joueurs[1].ActivateEffect(result); //joueur 2 active effet actif
+
+                yield return new WaitForSeconds(1);
 
                 pile.GestionStock(joueurs[1].coins);
 
@@ -220,8 +238,6 @@ namespace Miniville
             yield return null;
         }
 
-        public void ContinueAction() => canContinueAction = true;
-
         private void CheckIfCanBuy(Joueur joueur, int choice)
         {
 
@@ -230,7 +246,7 @@ namespace Miniville
             for (int i = 0; i < availableCards.Count; i++) //Pour toute les cartes dispo
             {
                 if (availableCards.Count >= 1 &&
-                    availableCards[i].info.Id - 1 == choice) //Si le joueur peut acheter la carte
+                    i == choice) //Si le joueur peut acheter la carte
                 {
                     canBuy = true;
                     break;
@@ -245,6 +261,21 @@ namespace Miniville
             canBuy = false;
 
             debileproof = false;
+        }
+
+        public bool JoueurBuyCard(Cards card)
+        {
+            var availableCards = pile.GestionStock(joueurs[0].coins);
+
+            if (!availableCards.Contains(card))
+                return false;
+
+            pile.Buy(availableCards.IndexOf(card), joueurs[0]);
+            ContinueAction();
+
+            // Reset Camera position
+            transition.SetCameraPosition(0);
+            return true;
         }
 
         public bool End()
@@ -268,5 +299,7 @@ namespace Miniville
                 "\nNombre de pièces: ", joueur.coins, "\n------");
             Console.WriteLine(texte);
         }
+
+        public void ContinueAction() => canContinueAction = true;
     }
 }

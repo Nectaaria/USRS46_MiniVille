@@ -10,6 +10,7 @@ namespace Miniville
 {
     public class Pile : MonoBehaviour
     {
+        public CardBuySelection cardBuySelection;
         public List<Cards> cardsToInstantiate;
         [Min(0)] public int startPileCount = 6;
         public Dictionary<Cards, int> paquet = new Dictionary<Cards, int>();
@@ -20,6 +21,8 @@ namespace Miniville
             {
                 paquet.Add(card, startPileCount);
             }
+
+            cardBuySelection.Init(paquet.Select(x => x.Key).ToList());
 
             //var ble = new Cards()
             //{

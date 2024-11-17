@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 212a823a8a4c85a49979910117ca4674, type: 3}
-  m_Name: Mine
+  m_Name: Bleu-Mine
   m_EditorClassIdentifier: 
   info:
     Id: 0

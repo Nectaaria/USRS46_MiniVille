@@ -6,27 +6,29 @@ using System.Threading.Tasks;
 
 namespace Miniville
 {
-    public class De
+    public class Dice
     {
-        public string nbFaces;
+        public int nbFaces;
         private Random random = new Random();
         private int lance;
-        public int Face { get; private set; }
 
-        public De(string nbFace)
+        public Dice(int nbFace)
         {
             this.nbFaces = nbFace;
         }
 
-        public int Lancer()
+        public int Lancer(int nbOfDice = 1)
         {
-            lance = random.Next(int.Parse(nbFaces));
+            if (nbOfDice < 1)
+                return 1;
+
+            lance = 0;
+            for (int i = 0; i < nbOfDice; i++)
+            {
+                lance += random.Next(1, nbFaces + 1);
+            }
+
             return lance;
         }
-        public override string ToString()
-        {
-            return lance.ToString();
-        }
-
     }
 }
