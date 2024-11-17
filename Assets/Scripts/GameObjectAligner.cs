@@ -15,16 +15,11 @@ namespace Miniville
         public bool invertZ;
         [Min(1)] public int maxPerRow = 5; // Nombre maximum de cartes par ligne
 
-        protected virtual void Start()
-        {
-            AlignGameObjectsHorizontally();
-        }
-
-        private void AlignGameObjectsHorizontally()
+        protected void AlignGameObjectsHorizontally()
         {
             if (Objects == null || Objects.Count == 0)
             {
-                Debug.LogWarning("Le dictionnaire de cartes est vide ou nul.");
+                //Debug.LogWarning("Le dictionnaire de cartes est vide ou nul.");
                 return;
             }
 
@@ -50,9 +45,13 @@ namespace Miniville
 
                 obj.transform.position = targetPosition; // Positionne le GameObject
 
+                obj.transform.rotation = GetRotation();
+
                 count++;
             }
         }
+
+        protected Quaternion GetRotation() => transform.rotation * Quaternion.Euler(rotationOffset);
 
         private void OnValidate()
         {
