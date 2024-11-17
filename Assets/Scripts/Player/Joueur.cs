@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,31 +10,50 @@ namespace Miniville
 {
     public class Joueur
     {
+        public List<Cards> StartingCards;
+
         Dictionary<Cards, int> DeckRouge = new Dictionary<Cards, int>();
         Dictionary<Cards, int> DeckBleu = new Dictionary<Cards, int>();
-        Dictionary<Cards, int> DeckVerte = new Dictionary<Cards, int>();
+        Dictionary<Cards, int> DeckVert = new Dictionary<Cards, int>();
         public string nom;
         public int coins = 3;
 
         public Joueur(string Nom)
         {
+            foreach (var card in StartingCards)
+            {
+                switch (card.info.Color)
+                {
+                    default:
+                    case CardColor.Bleu:
+                        DeckBleu.Add(card, 1);
+                        break;
+                    case CardColor.Vert:
+                        DeckVert.Add(card, 1);
+                        break;
+                    case CardColor.Rouge:
+                        DeckRouge.Add(card, 1);
+                        break;
+                }
+            }
+
             this.nom = Nom;
-            var ble = new Cards()
-            {
-                info = new CardsInfo() { Id = 1, Color = "Bleue", Cost = 1, Name = "Champ de blé", Effect = "Gain 1 coin every turn", Dice = 1, Gain = 1 }
-            };
-            var boulangerie = new Cards()
-            {
-                info = new CardsInfo() { Id = 3, Color = "VerteThune", Cost = 3, Name = "Boulangerie", Effect = "Gagne 1 pièce de la banque pendant votre tour", Dice = 2, Gain = 1 }
-            };
-            DeckBleu.Add(ble, 1);
-            DeckVerte.Add(boulangerie, 1);
+            //var ble = new Cards()
+            //{
+            //    info = new CardsInfo() { Id = 1, Color = "Bleue", Cost = 1, Name = "Champ de blé", Effect = "Gain 1 coin every turn", Dice = 1, Gain = 1 }
+            //};
+            //var boulangerie = new Cards()
+            //{
+            //    info = new CardsInfo() { Id = 3, Color = "VerteThune", Cost = 3, Name = "Boulangerie", Effect = "Gagne 1 pièce de la banque pendant votre tour", Dice = 2, Gain = 1 }
+            //};
+            //DeckBleu.Add(ble, 1);
+            //DeckVerte.Add(boulangerie, 1);
         }
         public void ActivateEffect(int resultDe)
         {
             //bleue et verte
             int buildingCount = 0;
-            foreach (var item in DeckVerte)
+            foreach (var item in DeckVert)
             {
                 if (item.Key.info.Dice != resultDe)
                     continue;
@@ -111,7 +131,7 @@ namespace Miniville
             {
                 texte += card.Key.info.Name + " | ";
             }
-            foreach (var card in DeckVerte)
+            foreach (var card in DeckVert)
             {
                 texte += card.Key.info.Name + " | ";
             }
@@ -124,14 +144,14 @@ namespace Miniville
             Dictionary<Cards, int> deck = new Dictionary<Cards, int>();
             switch (card.info.Color)
             {
-                case "Bleue":
+                case CardColor.Bleu:
                     deck = DeckBleu;
                     break;
-                case "Rouge":
+                case CardColor.Rouge:
                     deck = DeckRouge;
                     break;
-                case "Verte":
-                    deck = DeckVerte;
+                case CardColor.Vert:
+                    deck = DeckVert;
                     break;
 
             }
@@ -147,7 +167,7 @@ namespace Miniville
 
         public List<Cards> GetPlayerCards()
         {
-            List<Cards> allPlayerCards = DeckBleu.Keys.Concat(DeckRouge.Keys).Concat(DeckVerte.Keys).ToList();
+            List<Cards> allPlayerCards = DeckBleu.Keys.Concat(DeckRouge.Keys).Concat(DeckVert.Keys).ToList();
 
 
             return allPlayerCards;

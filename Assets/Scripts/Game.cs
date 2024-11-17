@@ -10,6 +10,8 @@ namespace Miniville
 
     public class Game : MonoBehaviour
     {
+        public List<Cards> StartingCards;
+
         public int gameTypeChoice=1;
         string choix;
         string moncul;
@@ -34,6 +36,13 @@ namespace Miniville
             joueurs.Add(new Joueur("Audrey"));
             joueurs.Add(new AI("Pascal"));
 
+            foreach (var joueur in joueurs)
+            {
+                foreach (var card in StartingCards)
+                {
+                    joueur.AddCard(card);
+                }
+            }
         }
 
         public void RunGame()

@@ -4,37 +4,45 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Miniville
 {
     public class Pile
     {
+        public List<Cards> cardsToInstantiate;
+        [Min(0)] public int startPileCount = 6;
         public Dictionary<Cards, int> paquet = new Dictionary<Cards, int>();
         public List<Cards> carteDispo = new List<Cards>();
         public Pile()
         {
-            var ble = new Cards()
+            foreach (var card in cardsToInstantiate)
             {
-                info = new CardsInfo() { Id = 1, Color = "Bleue", Cost = 1, Name = "Champ de blé", Effect = "Gain 1 coin every turn", Dice = 1, Gain = 1, Type = "Producteur" }
-            };
-            var cafe = new Cards()
-            {
-                info = new CardsInfo() { Id = 2, Color = "Rouge", Cost = 2, Name = "Café", Effect = "Gagne 1 pièce du joueur qui a lancé les dés", Dice = 3, Gain = 1, Type ="Commercial" }
-            };
-            var boulangerie = new Cards()
-            {
-                info = new CardsInfo() { Id = 3, Color = "VerteThune", Cost = 3, Name = "Boulangerie", Effect = "Gagne 1 pièce de la banque pendant votre tour", Dice = 2, Gain = 1, Type = "Bouffe" }
-            };
-            var fromagerie = new Cards()
-            {
-                info = new CardsInfo() { Id = 4, Color = "VerteBonus", Cost = 4, Name = "Fromagerie", Effect = "Recevez 3 pieces de la banque pour chaque établissement du type ferme que vous possédez", Dice = 7, Gain = 1, Type ="Usine"  }
-            };
+                paquet.Add(card, startPileCount);
+            }
+
+            //var ble = new Cards()
+            //{
+            //    info = new CardsInfo() { Id = 1, Color = "Bleue", Cost = 1, Name = "Champ de blé", Effect = "Gain 1 coin every turn", Dice = 1, Gain = 1, Type = "Producteur" }
+            //};
+            //var cafe = new Cards()
+            //{
+            //    info = new CardsInfo() { Id = 2, Color = "Rouge", Cost = 2, Name = "Café", Effect = "Gagne 1 pièce du joueur qui a lancé les dés", Dice = 3, Gain = 1, Type ="Commercial" }
+            //};
+            //var boulangerie = new Cards()
+            //{
+            //    info = new CardsInfo() { Id = 3, Color = "VerteThune", Cost = 3, Name = "Boulangerie", Effect = "Gagne 1 pièce de la banque pendant votre tour", Dice = 2, Gain = 1, Type = "Bouffe" }
+            //};
+            //var fromagerie = new Cards()
+            //{
+            //    info = new CardsInfo() { Id = 4, Color = "VerteBonus", Cost = 4, Name = "Fromagerie", Effect = "Recevez 3 pieces de la banque pour chaque établissement du type ferme que vous possédez", Dice = 7, Gain = 1, Type ="Usine"  }
+            //};
 
 
-            paquet.Add(ble, 6);
-            paquet.Add(cafe, 6);
-            paquet.Add(boulangerie, 6);
-            paquet.Add(fromagerie, 6);
+            //paquet.Add(ble, 6);
+            //paquet.Add(cafe, 6);
+            //paquet.Add(boulangerie, 6);
+            //paquet.Add(fromagerie, 6);
         }
         public List<Cards> GestionStock(int coins)
         {
