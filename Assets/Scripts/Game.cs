@@ -8,12 +8,13 @@ namespace Miniville
 
     public class Game
     {
+        public int gameTypeChoice=1;
         string choix;
         string moncul;
 
         bool debileproof = true;
         bool canBuy = false;
-        private bool isExpert;
+        public bool isExpert;
 
         private int EndCoinGoal = 20;
         public int result;
@@ -36,23 +37,22 @@ namespace Miniville
         public void RunGame()
         {
             Console.WriteLine("Choix du type de la partie: rapide, standard, longue ou expert!");
-            string gameTypeChoice = Console.ReadLine();
 
             switch (gameTypeChoice) //Choix du type de partie
             {
-                case "rapide":
+                case 1:
                     EndCoinGoal = 10;
                     break;
 
-                case "standard":
+                case 2:
                     EndCoinGoal = 20;
                     break;
 
-                case "longue":
+                case 3:
                     EndCoinGoal = 30;
                     break;
 
-                case "expert":
+                case 4:
                     EndCoinGoal = 20;
                     isExpert = true;
                     break;

@@ -9,7 +9,7 @@ namespace Miniville
     {
         
 
-        public CardsInfo cardsInfo;
+        public CardsInfo info;
         public Sprite Visual;
     }
 
@@ -24,6 +24,8 @@ namespace Miniville
         public string Effect;
         public int Dice;
         public int Gain;
+        public string Type;
+        public string targetType;
     }
     
 }
