@@ -44,7 +44,7 @@ namespace Miniville
 
         private void Start()
         {
-            joueurs = new List<Joueur>();
+            joueurs = new List<Joueur>();//Creation de nouveaux joueurs
             joueurs.Add(new Joueur("Audrey"));
             joueurs.Add(new AI("Pascal"));
 
@@ -52,14 +52,14 @@ namespace Miniville
             {
                 foreach (var card in StartingCards)
                 {
-                    joueur.AddCard(card);
+                    joueur.AddCard(card);//Ajout des cartes de base au joueur
                 }
             }
         }
 
         public void StartGame() => StartCoroutine(RunGame_Coroutine());
 
-        public void RunGame()
+        public void RunGame()//Pour le jeu console
         {
             switch (gameTypeChoice) //Choix du type de partie
             {

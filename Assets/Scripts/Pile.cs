@@ -53,15 +53,15 @@ namespace Miniville
             return carteDispo.Where(x => x.info.Cost <= coins).ToList();  
         }
         
-        public void Buy(int index, Joueur joueur)
+        public void Buy(int index, Joueur joueur)//Permet d'acheter les cartes
         {
             var carte = carteDispo[index];
-            joueur.AddCard(carte);
-            joueur.coins -= carte.info.Cost;
-            paquet[carte]--;
+            joueur.AddCard(carte);//Ajoute la carte au deck du joueur
+            joueur.coins -= carte.info.Cost;//Enleve les pieces au joueur
+            paquet[carte]--;//Retire la carte du paquet
             if(paquet[carte] <= 0)
             {
-                carteDispo.Remove(carte);
+                carteDispo.Remove(carte);//Enleve les cartes dispo des qu'il n'y en a plus dans le paquet
             }
         }
     }

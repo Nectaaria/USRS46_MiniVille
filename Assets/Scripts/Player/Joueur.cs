@@ -13,6 +13,7 @@ namespace Miniville
         Dictionary<Cards, int> DeckRouge = new Dictionary<Cards, int>();
         Dictionary<Cards, int> DeckBleu = new Dictionary<Cards, int>();
         Dictionary<Cards, int> DeckVert = new Dictionary<Cards, int>();
+
         public string nom;
         public int coins = 3;
 
@@ -34,9 +35,9 @@ namespace Miniville
         {
             //bleue et verte
             int buildingCount = 0;
-            foreach (var item in DeckVert)
+            foreach (var item in DeckVert)//Pour toutes les cartes vertes
             {
-                if (item.Key.info.Dice != resultDe)
+                if (item.Key.info.Dice != resultDe)//Si le resultat du de est different de celui necessaire a l'activation de la carte
                     continue;
                 foreach (var targetItem in DeckBleu)
                 {
@@ -49,21 +50,21 @@ namespace Miniville
                 {
                     if (resultDe > 6)
                     {
-                        coins += item.Key.info.Gain * buildingCount;
+                        coins += item.Key.info.Gain * buildingCount;//Donne l'argent au joueur
                     }
                     else
                     {
-                        coins += item.Key.info.Gain;
+                        coins += item.Key.info.Gain;//Donne l'argent au joueur
                     }
                 }
             }
-            foreach (var item in DeckBleu)
+            foreach (var item in DeckBleu)//Pour toutes les cartes bleues
             {
-                if (item.Key.info.Dice != resultDe)
+                if (item.Key.info.Dice != resultDe)//Si le resultat du de est different de celui necessaire
                     continue;
                 for (int i = 0; i < item.Value; i++)
                 {
-                    coins += item.Key.info.Gain;
+                    coins += item.Key.info.Gain;//Donne l'argent au joueur
                 }
             }
         }
@@ -71,17 +72,17 @@ namespace Miniville
         {
             int totalcoinslost = 0;
             int totalcoinsgained = 0;
-            foreach (var item in DeckRouge)
+
+            foreach (var item in DeckRouge)//Pour toutes les cartes rouges
             {
-                Console.WriteLine(item.Key.info.Name);
                 if (item.Key.info.Dice != resultDe)
                     continue;
                 for (int i = 0; i < item.Value; i++)
                 {
                     int pieceAPrendre = Math.Min(item.Key.info.Gain, joueur.coins);
-                    totalcoinslost += pieceAPrendre;
-                    joueur.coins -= pieceAPrendre;
-                    coins += pieceAPrendre;
+                    totalcoinslost += pieceAPrendre;//Les pieces que le joueur adverse va perdre
+                    joueur.coins -= pieceAPrendre;//Enlever les pieces
+                    coins += pieceAPrendre;//Ajouter au joueur actuel les pieces
                     totalcoinsgained += pieceAPrendre;
                 }
 
@@ -100,7 +101,7 @@ namespace Miniville
             Console.WriteLine("{0} gagne {1} coins dû aux capacités passives de ses cartes.", joueur.nom, totalcoinsgained);
         }
 
-        public string ShowCards()
+        public string ShowCards()//Permet d'afficher les cartes
         {
             string texte = "";
             foreach (var card in DeckBleu)
@@ -120,7 +121,7 @@ namespace Miniville
             return texte;
         }
 
-        public void AddCard(Cards card)
+        public void AddCard(Cards card)//Ajoute la carte dans le deck
         {
             Dictionary<Cards, int> deck = new Dictionary<Cards, int>();
             switch (card.info.Color)
@@ -136,7 +137,7 @@ namespace Miniville
                     break;
 
             }
-            if (deck.ContainsKey(card))
+            if (deck.ContainsKey(card))//Si le deck a deja la carte, ajouter 1 au compteur de carte
             {
                 deck[card]++;
             }
@@ -146,18 +147,18 @@ namespace Miniville
             }
         }
 
-        public Dictionary<Cards, int> GetPlayerCards()
+        public Dictionary<Cards, int> GetPlayerCards()//Recupere toutes les cartes du joueur
         {
             Dictionary<Cards, int> allPlayerCards = new Dictionary<Cards, int>(DeckBleu);
 
             foreach (var card in DeckRouge)
             {
-                allPlayerCards.Add(card.Key, card.Value);
+                allPlayerCards.Add(card.Key, card.Value);//Ajoute chaques cartes au dictionnaire
             }
 
             foreach (var card in DeckVert)
             {
-                allPlayerCards.Add(card.Key, card.Value);
+                allPlayerCards.Add(card.Key, card.Value);//Ajoute chaques cartes au dictionnaire
             }
 
             return allPlayerCards;
