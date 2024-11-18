@@ -292,6 +292,7 @@ namespace Miniville
             return (joueurs[0].coins >= EndCoinGoal) || (joueurs[1].coins >= EndCoinGoal && expertGoalReached);
         }
 
+
         public void MsgEntry(Joueur joueur)//Message general pour le jeu console
         {
             string texte = String.Concat("=====> Tour de ", joueur.nom, "\nSes cartes: ", joueur.ShowCards(),
