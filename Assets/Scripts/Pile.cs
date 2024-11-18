@@ -15,53 +15,45 @@ namespace Miniville
         [Min(0)] public int startPileCount = 6;
         public Dictionary<Cards, int> paquet = new Dictionary<Cards, int>();
         public List<Cards> carteDispo = new List<Cards>();
+
         public void Start()
         {
             foreach (var card in cardsToInstantiate)
             {
                 paquet.Add(card, startPileCount);
+                //Debug.Log($"Add {card} to dictionary");
             }
 
             cardBuySelection.Init(paquet.Select(x => x.Key).ToList());
-
-            //var ble = new Cards()
-            //{
-            //    info = new CardsInfo() { Id = 1, Color = "Bleue", Cost = 1, Name = "Champ de blé", Effect = "Gain 1 coin every turn", Dice = 1, Gain = 1, Type = "Producteur" }
-            //};
-            //var cafe = new Cards()
-            //{
-            //    info = new CardsInfo() { Id = 2, Color = "Rouge", Cost = 2, Name = "Café", Effect = "Gagne 1 pièce du joueur qui a lancé les dés", Dice = 3, Gain = 1, Type ="Commercial" }
-            //};
-            //var boulangerie = new Cards()
-            //{
-            //    info = new CardsInfo() { Id = 3, Color = "VerteThune", Cost = 3, Name = "Boulangerie", Effect = "Gagne 1 pièce de la banque pendant votre tour", Dice = 2, Gain = 1, Type = "Bouffe" }
-            //};
-            //var fromagerie = new Cards()
-            //{
-            //    info = new CardsInfo() { Id = 4, Color = "VerteBonus", Cost = 4, Name = "Fromagerie", Effect = "Recevez 3 pieces de la banque pour chaque établissement du type ferme que vous possédez", Dice = 7, Gain = 1, Type ="Usine"  }
-            //};
-
-
-            //paquet.Add(ble, 6);
-            //paquet.Add(cafe, 6);
-            //paquet.Add(boulangerie, 6);
-            //paquet.Add(fromagerie, 6);
         }
+
+        public void Init()
+        {
+            cardBuySelection.UpdateVisual(paquet);
+        }
+
         public List<Cards> GestionStock(int coins)
         {
             carteDispo = paquet.Where(x => x.Value > 0).Select(x => x.Key).ToList(); //retourne les cartes qui sont encore en stock
-            return carteDispo.Where(x => x.info.Cost <= coins).ToList();  
+            return carteDispo.Where(x => x.info.Cost <= coins).ToList();
         }
         
         public void Buy(int index, Joueur joueur)
         {
             var carte = carteDispo[index];
-            joueur.AddCard(carte);
-            joueur.coins -= carte.info.Cost;
-            paquet[carte]--;
-            if(paquet[carte] <= 0)
+            Buy(carte, joueur);
+        }
+
+        public void Buy(Cards card, Joueur joueur)
+        {
+            Debug.Log($"{card}");
+            joueur.AddCard(card);
+            joueur.coins -= card.info.Cost;
+            paquet[card]--;
+            if (paquet[card] <= 0)
             {
-                carteDispo.Remove(carte);
+                paquet.Remove(card);
+                cardBuySelection.UpdateVisual(paquet);
             }
         }
     }

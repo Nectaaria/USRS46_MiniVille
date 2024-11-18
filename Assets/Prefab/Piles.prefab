@@ -58,19 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 0}
-  pileVisuals:
-  - {fileID: 5094194859846338165}
-  - {fileID: 1850594964988736225}
-  - {fileID: 5361747495790274843}
-  - {fileID: 9163924199891444138}
-  - {fileID: 1642791143699956235}
-  - {fileID: 4313760212474254644}
-  - {fileID: 7928844203681832740}
-  - {fileID: 3308157932012118128}
-  - {fileID: 3727456380481104660}
-  - {fileID: 2563111653773481102}
-  - {fileID: 7878601170445828368}
-  - {fileID: 8887244275998799195}
+  cardVisuals: []
 --- !u!114 &8811680233835871107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,9 +152,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3727456380481104660}
-    - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 3161625262205336456}
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
@@ -177,19 +162,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
   m_PrefabInstance: {fileID: 1672136552662542568}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3727456380481104660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304368315413398395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89cb2dde2c91e0468fc3644a2d335f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 0}
 --- !u!114 &3161625262205336456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,8 +179,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3727456380481104660}
-          m_TargetAssemblyTypeName: Miniville.PileVisual, Assembly-CSharp
+        - m_Target: {fileID: 9099832461102010141}
+          m_TargetAssemblyTypeName: Miniville.CardVisual, Assembly-CSharp
           m_MethodName: OnClick
           m_Mode: 1
           m_Arguments:
@@ -245,6 +217,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2935015182419077676, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
   m_PrefabInstance: {fileID: 1672136552662542568}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9099832461102010141 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7601379342000089077, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+  m_PrefabInstance: {fileID: 1672136552662542568}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304368315413398395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d216c07fa448648903c74c1c47c2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1778764059084340420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -307,9 +290,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2563111653773481102}
-    - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4584467774491190337}
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
@@ -320,19 +300,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
   m_PrefabInstance: {fileID: 1778764059084340420}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2563111653773481102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2126230343482349399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89cb2dde2c91e0468fc3644a2d335f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 0}
 --- !u!114 &4584467774491190337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,8 +317,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2563111653773481102}
-          m_TargetAssemblyTypeName: Miniville.PileVisual, Assembly-CSharp
+        - m_Target: {fileID: 8201888626437282609}
+          m_TargetAssemblyTypeName: Miniville.CardVisual, Assembly-CSharp
           m_MethodName: OnClick
           m_Mode: 1
           m_Arguments:
@@ -388,6 +355,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2935015182419077676, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
   m_PrefabInstance: {fileID: 1778764059084340420}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8201888626437282609 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7601379342000089077, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+  m_PrefabInstance: {fileID: 1778764059084340420}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126230343482349399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d216c07fa448648903c74c1c47c2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2449157356900688049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -450,9 +428,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4313760212474254644}
-    - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4618351901032145947}
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
@@ -468,19 +443,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
   m_PrefabInstance: {fileID: 2449157356900688049}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4313760212474254644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2653663498743155490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89cb2dde2c91e0468fc3644a2d335f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 0}
 --- !u!114 &4618351901032145947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,8 +460,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4313760212474254644}
-          m_TargetAssemblyTypeName: Miniville.PileVisual, Assembly-CSharp
+        - m_Target: {fileID: 5224353272222041924}
+          m_TargetAssemblyTypeName: Miniville.CardVisual, Assembly-CSharp
           m_MethodName: OnClick
           m_Mode: 1
           m_Arguments:
@@ -531,6 +493,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.44866157, y: 0.69597906, z: 0.04013119}
   m_Center: {x: 0.0000038146973, y: -0.00000047683716, z: 8.077933e-27}
+--- !u!114 &5224353272222041924 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7601379342000089077, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+  m_PrefabInstance: {fileID: 2449157356900688049}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2653663498743155490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d216c07fa448648903c74c1c47c2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2948922609291271417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -593,9 +566,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3308157932012118128}
-    - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 5593423024300584051}
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
@@ -611,19 +581,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
   m_PrefabInstance: {fileID: 2948922609291271417}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3308157932012118128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3297266298466383722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89cb2dde2c91e0468fc3644a2d335f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 0}
 --- !u!114 &5593423024300584051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,8 +598,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3308157932012118128}
-          m_TargetAssemblyTypeName: Miniville.PileVisual, Assembly-CSharp
+        - m_Target: {fileID: 4724605046254533388}
+          m_TargetAssemblyTypeName: Miniville.CardVisual, Assembly-CSharp
           m_MethodName: OnClick
           m_Mode: 1
           m_Arguments:
@@ -674,6 +631,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.44866157, y: 0.69597906, z: 0.04013119}
   m_Center: {x: 0.0000038146973, y: -0.00000047683716, z: 8.077933e-27}
+--- !u!114 &4724605046254533388 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7601379342000089077, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+  m_PrefabInstance: {fileID: 2948922609291271417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3297266298466383722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d216c07fa448648903c74c1c47c2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5105608141632029226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -740,32 +708,27 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5094194859846338165}
-    - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 6892457707922830565}
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3024281269946887214}
   m_SourcePrefab: {fileID: 100100000, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+--- !u!114 &3433789867517650399 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7601379342000089077, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+  m_PrefabInstance: {fileID: 5105608141632029226}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4896627525407074745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d216c07fa448648903c74c1c47c2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4896627525407074745 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
   m_PrefabInstance: {fileID: 5105608141632029226}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5094194859846338165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4896627525407074745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89cb2dde2c91e0468fc3644a2d335f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 0}
 --- !u!114 &6892457707922830565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,8 +746,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5094194859846338165}
-          m_TargetAssemblyTypeName: Miniville.PileVisual, Assembly-CSharp
+        - m_Target: {fileID: 3433789867517650399}
+          m_TargetAssemblyTypeName: Miniville.CardVisual, Assembly-CSharp
           m_MethodName: OnClick
           m_Mode: 1
           m_Arguments:
@@ -883,32 +846,27 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1642791143699956235}
-    - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7029411437710527260}
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8654543781781699621}
   m_SourcePrefab: {fileID: 100100000, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+--- !u!114 &3334537393608999033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7601379342000089077, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+  m_PrefabInstance: {fileID: 5132746964663412620}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4761920456253115423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d216c07fa448648903c74c1c47c2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4761920456253115423 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
   m_PrefabInstance: {fileID: 5132746964663412620}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1642791143699956235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4761920456253115423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89cb2dde2c91e0468fc3644a2d335f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 0}
 --- !u!114 &7029411437710527260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,8 +884,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1642791143699956235}
-          m_TargetAssemblyTypeName: Miniville.PileVisual, Assembly-CSharp
+        - m_Target: {fileID: 3334537393608999033}
+          m_TargetAssemblyTypeName: Miniville.CardVisual, Assembly-CSharp
           m_MethodName: OnClick
           m_Mode: 1
           m_Arguments:
@@ -1026,32 +984,27 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7928844203681832740}
-    - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 3330132863684645861}
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3722479936492419433}
   m_SourcePrefab: {fileID: 100100000, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+--- !u!114 &2787729213993265416 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7601379342000089077, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+  m_PrefabInstance: {fileID: 5750400526611402493}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396180453553890670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d216c07fa448648903c74c1c47c2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5396180453553890670 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
   m_PrefabInstance: {fileID: 5750400526611402493}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7928844203681832740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5396180453553890670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89cb2dde2c91e0468fc3644a2d335f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 0}
 --- !u!114 &3330132863684645861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1069,8 +1022,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7928844203681832740}
-          m_TargetAssemblyTypeName: Miniville.PileVisual, Assembly-CSharp
+        - m_Target: {fileID: 2787729213993265416}
+          m_TargetAssemblyTypeName: Miniville.CardVisual, Assembly-CSharp
           m_MethodName: OnClick
           m_Mode: 1
           m_Arguments:
@@ -1169,32 +1122,27 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5361747495790274843}
-    - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 6002862453291253073}
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5699105902794265047}
   m_SourcePrefab: {fileID: 100100000, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+--- !u!114 &4132122448527037964 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7601379342000089077, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+  m_PrefabInstance: {fileID: 5775225805361082873}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6128037906703407722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d216c07fa448648903c74c1c47c2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6128037906703407722 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
   m_PrefabInstance: {fileID: 5775225805361082873}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5361747495790274843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6128037906703407722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89cb2dde2c91e0468fc3644a2d335f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 0}
 --- !u!114 &6002862453291253073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,8 +1160,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5361747495790274843}
-          m_TargetAssemblyTypeName: Miniville.PileVisual, Assembly-CSharp
+        - m_Target: {fileID: 4132122448527037964}
+          m_TargetAssemblyTypeName: Miniville.CardVisual, Assembly-CSharp
           m_MethodName: OnClick
           m_Mode: 1
           m_Arguments:
@@ -1312,14 +1260,22 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8887244275998799195}
-    - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1137697751870965986}
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1092992942670305561}
   m_SourcePrefab: {fileID: 100100000, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+--- !u!114 &711906788656533617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7601379342000089077, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+  m_PrefabInstance: {fileID: 6961638475081168772}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7327961362389244951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d216c07fa448648903c74c1c47c2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5199389882842095016 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2935015182419077676, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
@@ -1330,19 +1286,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
   m_PrefabInstance: {fileID: 6961638475081168772}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8887244275998799195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7327961362389244951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89cb2dde2c91e0468fc3644a2d335f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 0}
 --- !u!114 &1137697751870965986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1360,8 +1303,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8887244275998799195}
-          m_TargetAssemblyTypeName: Miniville.PileVisual, Assembly-CSharp
+        - m_Target: {fileID: 711906788656533617}
+          m_TargetAssemblyTypeName: Miniville.CardVisual, Assembly-CSharp
           m_MethodName: OnClick
           m_Mode: 1
           m_Arguments:
@@ -1455,14 +1398,22 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9163924199891444138}
-    - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 5836221581957853812}
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8521219323134518080}
   m_SourcePrefab: {fileID: 100100000, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+--- !u!114 &944324165958180943 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7601379342000089077, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+  m_PrefabInstance: {fileID: 7234874401805125562}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7010412093986925609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d216c07fa448648903c74c1c47c2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5538349117058510230 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2935015182419077676, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
@@ -1473,19 +1424,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
   m_PrefabInstance: {fileID: 7234874401805125562}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9163924199891444138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7010412093986925609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89cb2dde2c91e0468fc3644a2d335f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 0}
 --- !u!114 &5836221581957853812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1503,8 +1441,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 9163924199891444138}
-          m_TargetAssemblyTypeName: Miniville.PileVisual, Assembly-CSharp
+        - m_Target: {fileID: 944324165958180943}
+          m_TargetAssemblyTypeName: Miniville.CardVisual, Assembly-CSharp
           m_MethodName: OnClick
           m_Mode: 1
           m_Arguments:
@@ -1598,14 +1536,22 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1850594964988736225}
-    - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8245485278512875631}
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5668204895335084508}
   m_SourcePrefab: {fileID: 100100000, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+--- !u!114 &3517151312591768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7601379342000089077, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+  m_PrefabInstance: {fileID: 7598127722748173421}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7809078682096236542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d216c07fa448648903c74c1c47c2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4740808447644431937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2935015182419077676, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
@@ -1616,19 +1562,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
   m_PrefabInstance: {fileID: 7598127722748173421}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1850594964988736225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7809078682096236542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89cb2dde2c91e0468fc3644a2d335f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 0}
 --- !u!114 &8245485278512875631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1646,8 +1579,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1850594964988736225}
-          m_TargetAssemblyTypeName: Miniville.PileVisual, Assembly-CSharp
+        - m_Target: {fileID: 3517151312591768}
+          m_TargetAssemblyTypeName: Miniville.CardVisual, Assembly-CSharp
           m_MethodName: OnClick
           m_Mode: 1
           m_Arguments:
@@ -1741,14 +1674,22 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7878601170445828368}
-    - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1164858792959368426}
     - targetCorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6416794217968594023}
   m_SourcePrefab: {fileID: 100100000, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+--- !u!114 &1365816111487745596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7601379342000089077, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
+  m_PrefabInstance: {fileID: 8901888823509850569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9126351127167316570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d216c07fa448648903c74c1c47c2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5995021706104976357 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2935015182419077676, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
@@ -1759,19 +1700,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 373397755040115603, guid: ffd876490bb48064182a8652f3a5c7f8, type: 3}
   m_PrefabInstance: {fileID: 8901888823509850569}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7878601170445828368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9126351127167316570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89cb2dde2c91e0468fc3644a2d335f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 0}
 --- !u!114 &1164858792959368426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1789,8 +1717,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7878601170445828368}
-          m_TargetAssemblyTypeName: Miniville.PileVisual, Assembly-CSharp
+        - m_Target: {fileID: 1365816111487745596}
+          m_TargetAssemblyTypeName: Miniville.CardVisual, Assembly-CSharp
           m_MethodName: OnClick
           m_Mode: 1
           m_Arguments:

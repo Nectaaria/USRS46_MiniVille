@@ -11,7 +11,7 @@ namespace Miniville
 
         public Game game;
 
-        public List<PileVisual> pileVisuals;
+        public List<CardVisual> cardVisuals;
 
         bool _isActive;
 
@@ -30,10 +30,10 @@ namespace Miniville
         {
             for (int i = 0; i < cards.Count; i++)
             {
-                if (i >= pileVisuals.Count)
+                if (i >= cardVisuals.Count)
                     break;
 
-                pileVisuals[i].Init(cards[i]);
+                cardVisuals[i].Card = cards[i];
             }
         }
 
@@ -53,8 +53,18 @@ namespace Miniville
             if (!_isActive)
                 return;
 
-            if (game.JoueurBuyCard(card))
+            bool didBuyCard = game.JoueurBuyCard(card);
+            Debug.Log($"{nameof(didBuyCard)}: {didBuyCard}");
+            if (didBuyCard)
                 StopCardChoice();
+        }
+
+        public void UpdateVisual(Dictionary<Cards, int> paquet)
+        {
+            foreach (var visual in cardVisuals)
+            {
+                visual.gameObject.SetActive(paquet.ContainsKey(visual.Card) && paquet[visual.Card] > 0);
+            }
         }
     }
 }

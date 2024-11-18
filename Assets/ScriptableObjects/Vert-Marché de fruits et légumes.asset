@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 212a823a8a4c85a49979910117ca4674, type: 3}
-  m_Name: Vert-Boulangerie
+  m_Name: "Vert-March\xE9 de fruits et l\xE9gumes"
   m_EditorClassIdentifier: 
   info:
     Id: 0
     Color: 1
-    Cost: 1
-    Name: Boulangerie
+    Cost: 2
+    Name: "March\xE9 de fruits et l\xE9gumes"
     Effect: 
-    Dice: 2
-    Gain: 1
-    Type: Boutique
-    TargetType: 
+    Dice: 11
+    Gain: 2
+    Type: Melon
+    TargetType: "Ma\xEFs"
   Visual: {fileID: 21300000, guid: 86fb2777b8c863847a421710306e88e4, type: 3}

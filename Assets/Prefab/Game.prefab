@@ -61,10 +61,12 @@ MonoBehaviour:
     moneyText: {fileID: 0}
     cardPlayerVisual: {fileID: 0}
     _coins: 3
+    debugStartingCards: []
   - nom: Pascal
     moneyText: {fileID: 0}
     cardPlayerVisual: {fileID: 0}
     _coins: 3
+    debugStartingCards: []
 --- !u!114 &2550206353215827606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,5 +86,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1a48dc929e8b3954cb0a13cdef0925c1, type: 2}
   - {fileID: 11400000, guid: 5fc689ba86eb92b41950c6a5dacdf913, type: 2}
   - {fileID: 11400000, guid: 953b1108824ef2740a9e039230d0ddf7, type: 2}
+  - {fileID: 11400000, guid: 451dc6138e4a6a947ac5e01f7b374f20, type: 2}
+  - {fileID: 11400000, guid: 84ee04ea60552fc40a36aa82ebb343d6, type: 2}
+  - {fileID: 11400000, guid: 76b212a565be8614a8dfcec44de9c044, type: 2}
+  - {fileID: 11400000, guid: de630f610f9eac046b46f878f8557298, type: 2}
+  - {fileID: 11400000, guid: c0861fdaf15071c4695b95028a815f7d, type: 2}
+  - {fileID: 11400000, guid: 78f725acf9250a142b5be1c5b9f167ab, type: 2}
+  - {fileID: 11400000, guid: 021205c51fd5a3248b77729f94eb47af, type: 2}
   startPileCount: 6
   carteDispo: []

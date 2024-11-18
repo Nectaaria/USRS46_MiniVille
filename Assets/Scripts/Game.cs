@@ -174,7 +174,6 @@ namespace Miniville
 
                 yield return new WaitForSeconds(1);
 
-                debileproof = true;
                 if (pile.GestionStock(joueurs[0].coins).Count > 0)
                 {
                     buyChoice.SetActive(true);
@@ -182,33 +181,6 @@ namespace Miniville
                     canContinueAction = false;
 
                 }
-                // activate player choice
-
-                //while (debileproof)
-                //{
-                //    Console.WriteLine("Voulez-vous acheter une carte ? (oui/non)" +
-                //                      String.Format(" | Pièces: {0}", joueurs[0].coins));
-                //    choix = Console.ReadLine().ToLower();
-                //    if (choix == "oui" && joueurs[0].coins >= 1)
-                //    {
-                //        Console.WriteLine("Quelle carte ?");
-                //        foreach (var item in pile.carteDispo)
-                //        {
-                //            Console.WriteLine(item.info.Id - 1 + " : " + item.info.Name +
-                //                              String.Format(" (Coût: {0})",
-                //                                  item.info.Cost)); //Affichage des cartes dispo avec les id
-                //        }
-
-                //        int playerChoice = int.Parse(Console.ReadLine());
-
-                //        CheckIfCanBuy(joueurs[0], playerChoice);
-                //    }
-                //    else //Sinon rien acheter
-                //    {
-                //        debileproof = false;
-                //        Console.WriteLine("Tour passé.");
-                //    }
-                //}
 
                 yield return new WaitForSeconds(1);
 
@@ -233,6 +205,7 @@ namespace Miniville
                 yield return new WaitForSeconds(1);
             }
 
+            Debug.Log("Fini");
             yield return null;
         }
 
@@ -268,7 +241,8 @@ namespace Miniville
             if (!availableCards.Contains(card))
                 return false;
 
-            pile.Buy(availableCards.IndexOf(card), joueurs[0]);
+            Debug.Log($"Buy {card}");
+            pile.Buy(card, joueurs[0]);
             ContinueAction();
 
             // Reset Camera position

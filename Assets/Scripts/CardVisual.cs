@@ -12,11 +12,18 @@ namespace Miniville
             set
             {
                 _card = value;
-                Renderer.sprite = _card.Visual;
+                if (Renderer != null)
+                    Renderer.sprite = _card.Visual;
             }
         }
         private Cards _card;
 
         public SpriteRenderer Renderer;
+
+        public void OnClick()
+        {
+            //Debug.Log("Click Pile");
+            CardBuySelection.instance.BuyCard(Card);
+        }
     } 
 }
