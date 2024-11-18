@@ -171,16 +171,19 @@ namespace Miniville
                 // Feedback sur les effets passifs et actifs
                 // Pièce up pour chaque carte activée
                 joueurs[1].PassiveEffect(joueurs[0], result); //joueur 2 active effet passif
-                joueurs[0].ActivateEffect(result); //joueur 1 active effet actif
+                outputText.text = $"Les cartes de l'ordinateur font effet";
+                yield return new WaitForSeconds(2);
 
+                joueurs[0].ActivateEffect(result); //joueur 1 active effet actif
+                outputText.text = $"Les cartes du joueur font effet";
                 yield return new WaitForSeconds(1);
 
                 if (pile.GestionStock(joueurs[0].coins).Count > 0)//Si il y a des cartes qui peuvent etre achetes
                 {
+                    outputText.text = $"Voulez-vous acheter un Batiment ?";
                     buyChoice.SetActive(true);//Affiche
                     yield return new WaitUntil(() => canContinueAction == true);//Wait jusqu'a ce que l'action soit faite
                     canContinueAction = false;
-
                 }
 
                 yield return new WaitForSeconds(1);
@@ -190,8 +193,11 @@ namespace Miniville
                 outputText.text = $"Lancer de dé de l'ordinateur: {result}";
                 // Feedback sur les effets passifs et actifs
                 joueurs[0].PassiveEffect(joueurs[1], result); //joueur 1 active effet passif
-                joueurs[1].ActivateEffect(result); //joueur 2 active effet actif
+                outputText.text = $"Les cartes du joueur font effet";
+                yield return new WaitForSeconds(2);
 
+                joueurs[1].ActivateEffect(result); //joueur 2 active effet actif
+                outputText.text = $"Les cartes de l'ordinateur font effet";
                 yield return new WaitForSeconds(1);
 
                 pile.GestionStock(joueurs[1].coins);
@@ -201,6 +207,7 @@ namespace Miniville
 
                     int randomChoice = random.Next(pile.carteDispo.Count);//Choisir une carte aleatoire
                     CheckIfCanBuy(joueurs[1], randomChoice);
+                    outputText.text = $"L'ordinateur achète un batiment";
                 }
 
                 yield return new WaitForSeconds(1);
@@ -244,6 +251,7 @@ namespace Miniville
             if (canBuy)//Si le joueur peut acheter, acheter la carte
             {
                 pile.Buy(choice, joueur);
+                outputText.text = $"L'ordinateur a acheté un {availableCards[choice].info.Name}";
             }
 
             canBuy = false;
@@ -258,7 +266,7 @@ namespace Miniville
             if (!availableCards.Contains(card))//Si il n'y a pas de cartes disponibles
                 return false;
 
-            Debug.Log($"Buy {card}");
+            outputText.text = $"Vous avez acheté un {card.info.Name}";
             pile.Buy(card, joueurs[0]);
             ContinueAction();
 
