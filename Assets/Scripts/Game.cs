@@ -144,7 +144,7 @@ namespace Miniville
             switch (gameTypeChoice) //Choix du type de partie
             {
                 case 1:
-                    EndCoinGoal = 5;
+                    EndCoinGoal = 10;
                     break;
 
                 case 2:
