@@ -160,8 +160,8 @@ namespace Miniville
             {
                 //MsgEntry(joueurs[0]);
                 // demander le nombre de dés
-                diceChoice.SetActive(true);
-                yield return new WaitUntil(() => canContinueAction == true);
+                diceChoice.SetActive(true);//Montre le resultat du de
+                yield return new WaitUntil(() => canContinueAction == true);//Wait jusqu'a l'action
                 canContinueAction = false;
 
                 result = de.Lancer(diceCount); //joueur 1 lance dé
@@ -173,10 +173,10 @@ namespace Miniville
 
                 yield return new WaitForSeconds(1);
 
-                if (pile.GestionStock(joueurs[0].coins).Count > 0)
+                if (pile.GestionStock(joueurs[0].coins).Count > 0)//Si il y a des cartes qui peuvent etre achetes
                 {
-                    buyChoice.SetActive(true);
-                    yield return new WaitUntil(() => canContinueAction == true);
+                    buyChoice.SetActive(true);//Affiche
+                    yield return new WaitUntil(() => canContinueAction == true);//Wait jusqu'a ce que l'action soit faite
                     canContinueAction = false;
 
                 }
