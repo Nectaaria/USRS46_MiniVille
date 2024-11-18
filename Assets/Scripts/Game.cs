@@ -137,8 +137,6 @@ namespace Miniville
 
         public IEnumerator RunGame_Coroutine()
         {
-            outputText.text = "Choix du type de la partie: rapide, standard, longue ou expert!";
-
             switch (gameTypeChoice) //Choix du type de partie
             {
                 case 1:
@@ -167,7 +165,7 @@ namespace Miniville
                 canContinueAction = false;
 
                 result = de.Lancer(diceCount); //joueur 1 lance dé
-                outputText.text = $"Lancer de dé: {result}";
+                outputText.text = $"Lancer de dé du joueur: {result}";
                 // Feedback sur les effets passifs et actifs
                 // Pièce up pour chaque carte activée
                 joueurs[1].PassiveEffect(joueurs[0], result); //joueur 2 active effet passif
@@ -215,7 +213,7 @@ namespace Miniville
 
                 //MsgEntry(joueurs[1]);
                 result = de.Lancer();
-                outputText.text = $"Lancer de dé: {result}";
+                outputText.text = $"Lancer de dé de l'ordinateur: {result}";
                 // Feedback sur les effets passifs et actifs
                 joueurs[0].PassiveEffect(joueurs[1], result); //joueur 1 active effet passif
                 joueurs[1].ActivateEffect(result); //joueur 2 active effet actif
