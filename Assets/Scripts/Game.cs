@@ -28,6 +28,8 @@ namespace Miniville
         public GameObject diceChoice;
         public GameObject buyChoice;
         public TMP_Text outputText;
+        public TMP_Text endText;
+        public GameObject endScreen;
 
         public Pile pile;
         public SmoothTransition transition;
@@ -203,7 +205,24 @@ namespace Miniville
 
                 yield return new WaitForSeconds(1);
             }
-            Debug.Log("Fini");
+
+
+            string winningText = "";
+
+            if (joueurs[0].coins >= EndCoinGoal)
+            {
+                winningText = $"Le gagnant de cette partie est : {joueurs[0].nom}";
+            }
+            else if (joueurs[0].coins >= EndCoinGoal && joueurs[1].coins >= EndCoinGoal)
+            {
+                winningText = $"Il n'y a pas de gagnant, égalité!";
+            }
+            else { winningText = $"Le gagnant de cette partie est : {joueurs[1].nom}"; }
+
+            endText.text = winningText;
+
+            endScreen.SetActive(true);
+
             yield return null;
         }
 
@@ -291,7 +310,6 @@ namespace Miniville
 
             return (joueurs[0].coins >= EndCoinGoal) || (joueurs[1].coins >= EndCoinGoal && expertGoalReached);
         }
-
 
         public void MsgEntry(Joueur joueur)//Message general pour le jeu console
         {
