@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingCards:
   - {fileID: 11400000, guid: 687fd0cb38d74664688c2a73237e172a, type: 2}
-  - {fileID: 11400000, guid: 451dc6138e4a6a947ac5e01f7b374f20, type: 2}
+  - {fileID: 11400000, guid: 76b212a565be8614a8dfcec44de9c044, type: 2}
   gameTypeChoice: 1
   isExpert: 0
   result: 0
@@ -61,12 +61,10 @@ MonoBehaviour:
     moneyText: {fileID: 0}
     cardPlayerVisual: {fileID: 0}
     _coins: 3
-    debugStartingCards: []
   - nom: Pascal
     moneyText: {fileID: 0}
     cardPlayerVisual: {fileID: 0}
     _coins: 3
-    debugStartingCards: []
 --- !u!114 &2550206353215827606
 MonoBehaviour:
   m_ObjectHideFlags: 0

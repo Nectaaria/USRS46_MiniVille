@@ -22,4 +22,4 @@ MonoBehaviour:
     Gain: 3
     Type: Boutique
     TargetType: 
-  Visual: {fileID: 21300000, guid: 86fb2777b8c863847a421710306e88e4, type: 3}
+  Visual: {fileID: 21300000, guid: 23b02dca4d29eca438e23f073ee3ef79, type: 3}
