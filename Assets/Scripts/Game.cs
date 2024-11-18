@@ -168,6 +168,7 @@ namespace Miniville
 
                 result = de.Lancer(diceCount); //joueur 1 lance dé
                 outputText.text = $"Lancer de dé du joueur: {result}";
+                yield return new WaitForSeconds(2);
                 // Feedback sur les effets passifs et actifs
                 // Pièce up pour chaque carte activée
                 joueurs[1].PassiveEffect(joueurs[0], result); //joueur 2 active effet passif
@@ -191,6 +192,7 @@ namespace Miniville
                 //MsgEntry(joueurs[1]);
                 result = de.Lancer();
                 outputText.text = $"Lancer de dé de l'ordinateur: {result}";
+                yield return new WaitForSeconds(2);
                 // Feedback sur les effets passifs et actifs
                 joueurs[0].PassiveEffect(joueurs[1], result); //joueur 1 active effet passif
                 outputText.text = $"Les cartes du joueur font effet";
