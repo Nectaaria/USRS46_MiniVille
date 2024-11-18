@@ -7,20 +7,8 @@ namespace Miniville
 {
     public class CardPlayerVisual : GameObjectAligner
     {
-        // Champs publics configurables depuis l'inspecteur dans Unity
-        public Dictionary<Cards, CardVisual> cardObjects = new Dictionary<Cards, CardVisual>(); // Dictionnaire des cartes et leurs GameObjects
-        public List<Cards> cards = new List<Cards>();
+        public Dictionary<Cards, CardVisual> cardObjects = new Dictionary<Cards, CardVisual>();
         public GameObject cardPrefab;
-
-        private void Start()
-        {
-            foreach (var card in cards)
-            {
-                cardObjects.Add(card, Instantiate(cardPrefab, transform.position, GetRotation(), transform).GetComponent<CardVisual>());
-            }
-
-            UpdateVisual();
-        }
 
         public void UpdateVisual()
         {
@@ -33,8 +21,17 @@ namespace Miniville
         {
             foreach (var item in cardObjects)
             {
-                //item.Value.Card = item.Key;
+                item.Value.Card = item.Key;
             }
+        }
+
+        public void AddCard(Cards card)
+        {
+            if (cardObjects.ContainsKey(card))
+                return;
+
+            cardObjects.Add(card, Instantiate(cardPrefab, transform.position, GetRotation(), transform).GetComponent<CardVisual>());
+            UpdateVisual();
         }
     }
 }

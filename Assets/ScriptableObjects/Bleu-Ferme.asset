@@ -22,4 +22,4 @@ MonoBehaviour:
     Gain: 1
     Type: Vache
     TargetType: 
-  Visual: {fileID: 0}
+  Visual: {fileID: 21300000, guid: fb262f3545b770f4eacc1e72e6e4b1f6, type: 3}
