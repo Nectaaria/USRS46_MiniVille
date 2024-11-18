@@ -125,14 +125,13 @@ namespace Miniville
 
                 pile.GestionStock(joueurs[1].coins);
 
-                if (joueurs[1].coins >= 1)
+                if (joueurs[1].coins >= 1)//Si le joueur a des sous
                 {
 
-                    int randomChoice = random.Next(pile.carteDispo.Count);
+                    int randomChoice = random.Next(pile.carteDispo.Count);//Choisir une carte aleatoire
                     CheckIfCanBuy(joueurs[1], randomChoice);
                 }
             }
-
             outputText.text = "Fin de la partie";
         }
 
@@ -195,16 +194,15 @@ namespace Miniville
 
                 pile.GestionStock(joueurs[1].coins);
 
-                if (joueurs[1].coins >= 1)
+                if (joueurs[1].coins >= 1)//Si le joueur a des sous
                 {
 
-                    int randomChoice = random.Next(pile.carteDispo.Count);
+                    int randomChoice = random.Next(pile.carteDispo.Count);//Choisir une carte aleatoire
                     CheckIfCanBuy(joueurs[1], randomChoice);
                 }
 
                 yield return new WaitForSeconds(1);
             }
-
             Debug.Log("Fini");
             yield return null;
         }
@@ -212,7 +210,7 @@ namespace Miniville
         private void CheckIfCanBuy(Joueur joueur, int choice)
         {
 
-            var availableCards = pile.GestionStock(joueur.coins); //Cartes disponible a l'achat
+            var availableCards = pile.GestionStock(joueur.coins);//Cartes disponible a l'achat
 
             for (int i = 0; i < availableCards.Count; i++) //Pour toute les cartes dispo
             {
@@ -224,7 +222,7 @@ namespace Miniville
                 }
             }
 
-            if (canBuy)
+            if (canBuy)//Si le joueur peut acheter, acheter la carte
             {
                 pile.Buy(choice, joueur);
             }
@@ -238,14 +236,14 @@ namespace Miniville
         {
             var availableCards = pile.GestionStock(joueurs[0].coins);
 
-            if (!availableCards.Contains(card))
+            if (!availableCards.Contains(card))//Si il n'y a pas de cartes disponibles
                 return false;
 
             Debug.Log($"Buy {card}");
             pile.Buy(card, joueurs[0]);
             ContinueAction();
 
-            // Reset Camera position
+            // Reset la position de la camera position
             transition.SetCameraPosition(0);
             return true;
         }
@@ -263,7 +261,7 @@ namespace Miniville
                 {
                     if (joueurs[0].GetPlayerCards().ContainsKey(key))
                     {
-                        if (cardAmount.ContainsKey(key))
+                        if (cardAmount.ContainsKey(key))//Si la carte existe deja
                         {
                             cardAmount[key]++;//Incrementer
                         }
@@ -281,7 +279,7 @@ namespace Miniville
                         break;
                     }
                 }
-                if (allValuesValid)
+                if (allValuesValid)//Si il y a au moin 1 exemplaire de chaques cartes
                 {
                     expertGoalReached = true;
                 }
@@ -294,7 +292,7 @@ namespace Miniville
             return (joueurs[0].coins >= EndCoinGoal) || (joueurs[1].coins >= EndCoinGoal && expertGoalReached);
         }
 
-        public void MsgEntry(Joueur joueur)
+        public void MsgEntry(Joueur joueur)//Message general pour le jeu console
         {
             string texte = String.Concat("=====> Tour de ", joueur.nom, "\nSes cartes: ", joueur.ShowCards(),
                 "\nNombre de pièces: ", joueur.coins, "\n------");

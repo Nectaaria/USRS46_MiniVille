@@ -46,11 +46,11 @@ namespace Miniville
 
         public void Buy(Cards card, Joueur joueur)
         {
-            Debug.Log($"{card}");
-            joueur.AddCard(card);
-            joueur.coins -= card.info.Cost;
-            paquet[card]--;
-            if (paquet[card] <= 0)
+            Debug.Log($"{card.info.Name}");
+            joueur.AddCard(card);//Ajouter la carte au deck du joueur
+            joueur.coins -= card.info.Cost;//Enlever au joueur le prix de la carte
+            paquet[card]--;//Retirer la carte du paquet
+            if (paquet[card] <= 0)//Enlever la carte des cartes dispo si il n'en reste plus
             {
                 paquet.Remove(card);
                 cardBuySelection.UpdateVisual(paquet);

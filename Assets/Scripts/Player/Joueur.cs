@@ -109,7 +109,7 @@ namespace Miniville
             Console.WriteLine("{0} gagne {1} coins dû aux capacités passives de ses cartes.", joueur.nom, totalcoinsgained);
         }
 
-        public string ShowCards()//Permet d'afficher les cartes
+        public string ShowCards()//Permet d'afficher les cartes en les separants
         {
             string texte = "";
             foreach (var card in DeckBleu)

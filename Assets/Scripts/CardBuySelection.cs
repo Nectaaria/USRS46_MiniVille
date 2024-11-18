@@ -19,7 +19,7 @@ namespace Miniville
         {
             if (instance != null)
             {
-                Destroy(gameObject);
+                Destroy(gameObject);//Enlever les cartes
                 return;
             }
 
@@ -33,7 +33,7 @@ namespace Miniville
                 if (i >= cardVisuals.Count)
                     break;
 
-                cardVisuals[i].Card = cards[i];
+                cardVisuals[i].Card = cards[i];//Creer les cartes et leur visuel
             }
         }
 
