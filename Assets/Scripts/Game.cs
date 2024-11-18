@@ -4,6 +4,8 @@ using UnityEngine;
 using Random = System.Random;
 using System.Collections;
 using TMPro;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 
 namespace Miniville
@@ -28,6 +30,8 @@ namespace Miniville
         public GameObject diceChoice;
         public GameObject buyChoice;
         public TMP_Text outputText;
+        public GameObject endScreen;
+        public TMP_Text endText;
 
         public Pile pile;
         public SmoothTransition transition;
@@ -140,7 +144,7 @@ namespace Miniville
             switch (gameTypeChoice) //Choix du type de partie
             {
                 case 1:
-                    EndCoinGoal = 10;
+                    EndCoinGoal = 5;
                     break;
 
                 case 2:
@@ -181,6 +185,7 @@ namespace Miniville
                     canContinueAction = false;
 
                 }
+
                 // activate player choice
 
                 //while (debileproof)
@@ -233,6 +238,7 @@ namespace Miniville
             }
 
             yield return null;
+            ShowEndScreen();
         }
 
         private void CheckIfCanBuy(Joueur joueur, int choice)
@@ -317,6 +323,25 @@ namespace Miniville
             }
 
             return (joueurs[0].coins >= EndCoinGoal) || (joueurs[1].coins >= EndCoinGoal && expertGoalReached);
+        }
+
+        public void ShowEndScreen()
+        {
+            string winningText = "";
+
+            if (joueurs[0].coins >= EndCoinGoal)
+            {
+                winningText = $"Le gagnant de cette partie est : {joueurs[0].nom}";
+            }
+            else if (joueurs[0].coins >= EndCoinGoal && joueurs[1].coins >= EndCoinGoal)
+            {
+                winningText = $"Il n'y a pas de gagnant, égalité!";
+            }
+            else { winningText = $"Le gagnant de cette partie est : {joueurs[1].nom}"; }
+
+            endText.text = winningText;
+
+            endScreen.SetActive(true);
         }
 
         public void MsgEntry(Joueur joueur)
