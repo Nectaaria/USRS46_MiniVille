@@ -44,13 +44,12 @@ namespace Miniville
 
         private void Start()
         {
-            //joueurs = new List<Joueur>();
-            //joueurs.Add(new Joueur("Audrey"));
-            //joueurs.Add(new AI("Pascal"));
+            joueurs = new List<Joueur>();
+            joueurs.Add(new Joueur("Audrey"));
+            joueurs.Add(new AI("Pascal"));
 
             foreach (var joueur in joueurs)
             {
-                joueur.Init();
                 foreach (var card in StartingCards)
                 {
                     joueur.AddCard(card);

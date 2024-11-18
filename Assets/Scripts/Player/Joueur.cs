@@ -4,40 +4,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TMPro;
-using UnityEngine;
 
 
 namespace Miniville
 {
-    [Serializable]
     public class Joueur
     {
         Dictionary<Cards, int> DeckRouge = new Dictionary<Cards, int>();
         Dictionary<Cards, int> DeckBleu = new Dictionary<Cards, int>();
         Dictionary<Cards, int> DeckVert = new Dictionary<Cards, int>();
         public string nom;
-        public int coins
+        public int coins = 3;
+
+        public Joueur(string Nom)
         {
-            get => _coins;
-            set
-            {
-                _coins = value;
-                if (moneyText != null)
-                    moneyText.text = value.ToString();
-            }
+            this.nom = Nom;
+            //var ble = new Cards()
+            //{
+            //    info = new CardsInfo() { Id = 1, Color = "Bleue", Cost = 1, Name = "Champ de blé", Effect = "Gain 1 coin every turn", Dice = 1, Gain = 1 }
+            //};
+            //var boulangerie = new Cards()
+            //{
+            //    info = new CardsInfo() { Id = 3, Color = "VerteThune", Cost = 3, Name = "Boulangerie", Effect = "Gagne 1 pièce de la banque pendant votre tour", Dice = 2, Gain = 1 }
+            //};
+            //DeckBleu.Add(ble, 1);
+            //DeckVerte.Add(boulangerie, 1);
         }
-
-        public TextMeshProUGUI moneyText;
-        public CardPlayerVisual cardPlayerVisual;
-
-        [SerializeField] private int _coins = 3;
-
-        public void Init()
-        {
-            coins = _coins;
-        }
-
         public void ActivateEffect(int resultDe)
         {
             //bleue et verte
@@ -152,9 +144,6 @@ namespace Miniville
             {
                 deck.Add(card, 1);
             }
-
-            if (cardPlayerVisual != null)
-                cardPlayerVisual.AddCard(card);
         }
 
         public Dictionary<Cards, int> GetPlayerCards()

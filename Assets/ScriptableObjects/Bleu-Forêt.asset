@@ -22,4 +22,4 @@ MonoBehaviour:
     Gain: 1
     Type: Engrenage
     TargetType: 
-  Visual: {fileID: 21300000, guid: c9b4698ac2b0a9545b2ef182c9c48171, type: 3}
+  Visual: {fileID: 0}
