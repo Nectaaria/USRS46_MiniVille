@@ -1073,7 +1073,6 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
 <<<<<<< HEAD
-<<<<<<< HEAD
 --- !u!1001 &572681224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1598,8 +1597,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.3, y: 3.6000009, z: 0.20000005}
   m_Center: {x: 0.0000038146973, y: -0.00000047683716, z: 0}
-=======
->>>>>>> 2290e91d99b83fe964d95d762cdc1658a572cfb8
 =======
 >>>>>>> 2290e91d99b83fe964d95d762cdc1658a572cfb8
 --- !u!1 &818753568
@@ -4469,15 +4466,9 @@ SceneRoots:
   - {fileID: 351700627}
   - {fileID: 981525399}
 <<<<<<< HEAD
-<<<<<<< HEAD
   - {fileID: 142106738}
   - {fileID: 1503675434}
   - {fileID: 614371329}
-=======
-  - {fileID: 1963966895}
-  - {fileID: 4377153712070069523}
-  - {fileID: 1717073389}
->>>>>>> 2290e91d99b83fe964d95d762cdc1658a572cfb8
 =======
   - {fileID: 1963966895}
   - {fileID: 4377153712070069523}
