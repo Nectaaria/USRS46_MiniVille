@@ -4,8 +4,6 @@ using UnityEngine;
 using Random = System.Random;
 using System.Collections;
 using TMPro;
-using UnityEditor.SearchService;
-using UnityEngine.SceneManagement;
 
 
 namespace Miniville
@@ -30,8 +28,6 @@ namespace Miniville
         public GameObject diceChoice;
         public GameObject buyChoice;
         public TMP_Text outputText;
-        public GameObject endScreen;
-        public TMP_Text endText;
 
         public Pile pile;
         public SmoothTransition transition;
@@ -44,12 +40,13 @@ namespace Miniville
 
         private void Start()
         {
-            joueurs = new List<Joueur>();//Creation de nouveaux joueurs
-            joueurs.Add(new Joueur("Audrey"));
-            joueurs.Add(new AI("Pascal"));
+            //joueurs = new List<Joueur>();
+            //joueurs.Add(new Joueur("Audrey"));
+            //joueurs.Add(new AI("Pascal"));
 
             foreach (var joueur in joueurs)
             {
+                joueur.Init();
                 foreach (var card in StartingCards)
                 {
                     joueur.AddCard(card);//Ajout des cartes de base au joueur
@@ -177,7 +174,6 @@ namespace Miniville
 
                 yield return new WaitForSeconds(1);
 
-                debileproof = true;
                 if (pile.GestionStock(joueurs[0].coins).Count > 0)
                 {
                     buyChoice.SetActive(true);
@@ -185,34 +181,6 @@ namespace Miniville
                     canContinueAction = false;
 
                 }
-
-                // activate player choice
-
-                //while (debileproof)
-                //{
-                //    Console.WriteLine("Voulez-vous acheter une carte ? (oui/non)" +
-                //                      String.Format(" | Pièces: {0}", joueurs[0].coins));
-                //    choix = Console.ReadLine().ToLower();
-                //    if (choix == "oui" && joueurs[0].coins >= 1)
-                //    {
-                //        Console.WriteLine("Quelle carte ?");
-                //        foreach (var item in pile.carteDispo)
-                //        {
-                //            Console.WriteLine(item.info.Id - 1 + " : " + item.info.Name +
-                //                              String.Format(" (Coût: {0})",
-                //                                  item.info.Cost)); //Affichage des cartes dispo avec les id
-                //        }
-
-                //        int playerChoice = int.Parse(Console.ReadLine());
-
-                //        CheckIfCanBuy(joueurs[0], playerChoice);
-                //    }
-                //    else //Sinon rien acheter
-                //    {
-                //        debileproof = false;
-                //        Console.WriteLine("Tour passé.");
-                //    }
-                //}
 
                 yield return new WaitForSeconds(1);
 
@@ -237,8 +205,8 @@ namespace Miniville
                 yield return new WaitForSeconds(1);
             }
 
+            Debug.Log("Fini");
             yield return null;
-            ShowEndScreen();
         }
 
         private void CheckIfCanBuy(Joueur joueur, int choice)
@@ -273,7 +241,8 @@ namespace Miniville
             if (!availableCards.Contains(card))
                 return false;
 
-            pile.Buy(availableCards.IndexOf(card), joueurs[0]);
+            Debug.Log($"Buy {card}");
+            pile.Buy(card, joueurs[0]);
             ContinueAction();
 
             // Reset Camera position
@@ -323,25 +292,6 @@ namespace Miniville
             }
 
             return (joueurs[0].coins >= EndCoinGoal) || (joueurs[1].coins >= EndCoinGoal && expertGoalReached);
-        }
-
-        public void ShowEndScreen()
-        {
-            string winningText = "";
-
-            if (joueurs[0].coins >= EndCoinGoal)
-            {
-                winningText = $"Le gagnant de cette partie est : {joueurs[0].nom}";
-            }
-            else if (joueurs[0].coins >= EndCoinGoal && joueurs[1].coins >= EndCoinGoal)
-            {
-                winningText = $"Il n'y a pas de gagnant, égalité!";
-            }
-            else { winningText = $"Le gagnant de cette partie est : {joueurs[1].nom}"; }
-
-            endText.text = winningText;
-
-            endScreen.SetActive(true);
         }
 
         public void MsgEntry(Joueur joueur)

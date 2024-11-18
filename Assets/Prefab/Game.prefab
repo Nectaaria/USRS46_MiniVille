@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9139614045906739765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6324884757142331006}
+  - component: {fileID: 5165624019143625191}
+  - component: {fileID: 2550206353215827606}
+  m_Layer: 0
+  m_Name: Game
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6324884757142331006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9139614045906739765}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 610.8872, y: 181.62769, z: -4.260635}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5165624019143625191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9139614045906739765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a9416469282fa4cbfdcd2cc8341ceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingCards:
+  - {fileID: 11400000, guid: 687fd0cb38d74664688c2a73237e172a, type: 2}
+  - {fileID: 11400000, guid: 451dc6138e4a6a947ac5e01f7b374f20, type: 2}
+  gameTypeChoice: 1
+  isExpert: 0
+  result: 0
+  diceChoice: {fileID: 0}
+  buyChoice: {fileID: 0}
+  outputText: {fileID: 0}
+  pile: {fileID: 2550206353215827606}
+  transition: {fileID: 0}
+  joueurs:
+  - nom: Audrey
+    moneyText: {fileID: 0}
+    cardPlayerVisual: {fileID: 0}
+    _coins: 3
+    debugStartingCards: []
+  - nom: Pascal
+    moneyText: {fileID: 0}
+    cardPlayerVisual: {fileID: 0}
+    _coins: 3
+    debugStartingCards: []
+--- !u!114 &2550206353215827606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9139614045906739765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe779ad293d8d084e9d1db3d446c8614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardBuySelection: {fileID: 0}
+  cardsToInstantiate:
+  - {fileID: 11400000, guid: 687fd0cb38d74664688c2a73237e172a, type: 2}
+  - {fileID: 11400000, guid: 995eccc6d6ea58b40a53acb8f3cefcac, type: 2}
+  - {fileID: 11400000, guid: 1a48dc929e8b3954cb0a13cdef0925c1, type: 2}
+  - {fileID: 11400000, guid: 5fc689ba86eb92b41950c6a5dacdf913, type: 2}
+  - {fileID: 11400000, guid: 953b1108824ef2740a9e039230d0ddf7, type: 2}
+  - {fileID: 11400000, guid: 451dc6138e4a6a947ac5e01f7b374f20, type: 2}
+  - {fileID: 11400000, guid: 84ee04ea60552fc40a36aa82ebb343d6, type: 2}
+  - {fileID: 11400000, guid: 76b212a565be8614a8dfcec44de9c044, type: 2}
+  - {fileID: 11400000, guid: de630f610f9eac046b46f878f8557298, type: 2}
+  - {fileID: 11400000, guid: c0861fdaf15071c4695b95028a815f7d, type: 2}
+  - {fileID: 11400000, guid: 78f725acf9250a142b5be1c5b9f167ab, type: 2}
+  - {fileID: 11400000, guid: 021205c51fd5a3248b77729f94eb47af, type: 2}
+  startPileCount: 6
+  carteDispo: []

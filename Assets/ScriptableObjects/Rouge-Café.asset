@@ -22,4 +22,4 @@ MonoBehaviour:
     Gain: 1
     Type: Restaurant
     TargetType: 
-  Visual: {fileID: 0}
+  Visual: {fileID: 21300000, guid: 9e2ce2a795b5cb9419152bd4fa1fcf2f, type: 3}
